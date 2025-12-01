@@ -1,5 +1,6 @@
 #pragma once
 #include "CadenaADN.h"
+#include <list>
 using namespace std;
 
 class ListaCadenasADN;
@@ -33,6 +34,8 @@ public:
 class ListaCadenasADN
 {
 private:
+   list<CadenaADN> container;
+
 public:
    // Constructor por defecto: lista vacía
    ListaCadenasADN();

@@ -1,3 +1,3 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- check tests one by one (comment rest)
+- check tests one by one (comment rest) *

@@ -109,13 +109,15 @@ bool ListaCadenasADN::esVacia()
 }
 
 // Inserta una cadena de ADN al principio de la lista
-void ListaCadenasADN::insertarInicio(const CadenaADN &)
+void ListaCadenasADN::insertarInicio(const CadenaADN &cadena)
 {
+    container.push_front(cadena);
 }
 
 // Inserta una cadena de ADN al final de la lista
-void ListaCadenasADN::insertarFinal(const CadenaADN &)
+void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 {
+    container.push_back(cadena);
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
@@ -157,7 +159,7 @@ bool ListaCadenasADN::borrar(IteradorLista &)
 // Devuelve cuántos elementos hay en la lista
 int ListaCadenasADN::longitud()
 {
-    return 0;
+    return container.size();
 }
 
 // Cuenta el número de apariciones de la cadena de ADN que se pasa como parámetro
