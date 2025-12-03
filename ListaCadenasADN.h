@@ -10,6 +10,8 @@ class IteradorLista
    friend class ListaCadenasADN;
 
 private:
+   list<CadenaADN>::iterator iter;
+
 public:
    // Constructor por defecto: puntero a nullptr
    IteradorLista();
@@ -34,7 +36,7 @@ public:
 class ListaCadenasADN
 {
 private:
-   list<CadenaADN> container;
+   list<CadenaADN> data;
 
 public:
    // Constructor por defecto: lista vacía

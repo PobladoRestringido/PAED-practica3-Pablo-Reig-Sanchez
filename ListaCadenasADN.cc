@@ -24,6 +24,7 @@ IteradorLista &IteradorLista::operator=(const IteradorLista &)
 // Avanza una posición en la lista
 void IteradorLista::step()
 {
+    ++iter;
 }
 
 // Retrocede una posición en la lista
@@ -72,7 +73,9 @@ ListaCadenasADN::~ListaCadenasADN()
 // Devuelve un iterador que apunta al primer elemento de la lista
 IteradorLista ListaCadenasADN::begin()
 {
-    return IteradorLista();
+    IteradorLista it;
+    it.iter = data.begin();
+    return it;
 }
 
 // Devuelve un iterador que apunta después del
@@ -80,26 +83,34 @@ IteradorLista ListaCadenasADN::begin()
 // de la lista: puntero a nullptr
 IteradorLista ListaCadenasADN::end()
 {
-    return IteradorLista();
+    IteradorLista it;
+    it.iter = data.end();
+    return it;
 }
 
 // Devuelve un iterador que apunta al último elemento de la lista
 IteradorLista ListaCadenasADN::rbegin()
 {
-    return IteradorLista();
+    IteradorLista it;
+    it.iter = data.end();
+    it.iter--;
+    return it;
 }
 
 // Devuelve un iterador que apunta antes del
 // primer elemento de la lista: puntero a nullptr
 IteradorLista ListaCadenasADN::rend()
 {
-    return IteradorLista();
+    IteradorLista it;
+    it.iter = data.begin();
+    it.iter--;
+    return it;
 }
 
 // Devuelve la cadena de ADN apuntada por el iterador
-CadenaADN ListaCadenasADN::getCadenaADN(IteradorLista)
+CadenaADN ListaCadenasADN::getCadenaADN(IteradorLista it)
 {
-    return CadenaADN();
+    return *it.iter;
 }
 
 // Comprueba si la lista está vacía
@@ -111,13 +122,13 @@ bool ListaCadenasADN::esVacia()
 // Inserta una cadena de ADN al principio de la lista
 void ListaCadenasADN::insertarInicio(const CadenaADN &cadena)
 {
-    container.push_front(cadena);
+    data.push_front(cadena);
 }
 
 // Inserta una cadena de ADN al final de la lista
 void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 {
-    container.push_back(cadena);
+    data.push_back(cadena);
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
@@ -159,7 +170,7 @@ bool ListaCadenasADN::borrar(IteradorLista &)
 // Devuelve cuántos elementos hay en la lista
 int ListaCadenasADN::longitud()
 {
-    return container.size();
+    return data.size();
 }
 
 // Cuenta el número de apariciones de la cadena de ADN que se pasa como parámetro
