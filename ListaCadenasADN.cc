@@ -6,8 +6,9 @@ IteradorLista::IteradorLista()
 }
 
 // Constructor de copia
-IteradorLista::IteradorLista(const IteradorLista &)
+IteradorLista::IteradorLista(const IteradorLista &other)
 {
+    this->iter = other.iter;
 }
 
 // Destructor: puntero a nullptr
@@ -55,8 +56,9 @@ ListaCadenasADN::ListaCadenasADN()
 {
 }
 // Constructor de copia
-ListaCadenasADN::ListaCadenasADN(const ListaCadenasADN &)
+ListaCadenasADN::ListaCadenasADN(const ListaCadenasADN &other)
 {
+    this->data = other.data;
 }
 
 // Operador de asignación

@@ -92,6 +92,7 @@ vector<string> obtenerSecuencias(ListaCadenasADN &lista)
     vector<string> v;
     for (IteradorLista it = lista.begin(); it != lista.end(); it.step())
         v.push_back(lista.getCadenaADN(it).getSecuencia());
+
     return v;
 }
 
