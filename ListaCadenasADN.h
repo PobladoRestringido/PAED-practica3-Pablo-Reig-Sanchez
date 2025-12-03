@@ -13,14 +13,6 @@ private:
    list<CadenaADN>::iterator iter;
 
 public:
-   // Constructor por defecto: puntero a nullptr
-   IteradorLista();
-   // Constructor de copia
-   IteradorLista(const IteradorLista &);
-   // Destructor: puntero a nullptr
-   ~IteradorLista();
-   // Operador de asignación
-   IteradorLista &operator=(const IteradorLista &);
    // Avanza una posición en la lista
    void step();
    // Retrocede una posición en la lista
@@ -39,14 +31,6 @@ private:
    list<CadenaADN> data;
 
 public:
-   // Constructor por defecto: lista vacía
-   ListaCadenasADN();
-   // Constructor de copia
-   ListaCadenasADN(const ListaCadenasADN &);
-   // Operador de asignación
-   ListaCadenasADN &operator=(const ListaCadenasADN &);
-   // Destructor
-   ~ListaCadenasADN();
    // Devuelve un iterador que apunta al primer elemento de la lista
    IteradorLista begin();
    // Devuelve un iterador que apunta después del

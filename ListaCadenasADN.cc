@@ -1,27 +1,5 @@
 #include "ListaCadenasADN.h"
 
-// Constructor por defecto: puntero a nullptr
-IteradorLista::IteradorLista()
-{
-}
-
-// Constructor de copia
-IteradorLista::IteradorLista(const IteradorLista &other)
-{
-    this->iter = other.iter;
-}
-
-// Destructor: puntero a nullptr
-IteradorLista::~IteradorLista()
-{
-}
-
-// Operador de asignación
-IteradorLista &IteradorLista::operator=(const IteradorLista &)
-{
-    return *this;
-}
-
 // Avanza una posición en la lista
 void IteradorLista::step()
 {
@@ -50,28 +28,6 @@ bool IteradorLista::operator!=(const IteradorLista &other) const
 bool IteradorLista::esVacio() const
 {
     return true;
-}
-
-// Constructor por defecto: lista vacía
-ListaCadenasADN::ListaCadenasADN()
-{
-}
-// Constructor de copia
-ListaCadenasADN::ListaCadenasADN(const ListaCadenasADN &other)
-{
-    this->data = other.data;
-}
-
-// Operador de asignación
-ListaCadenasADN &ListaCadenasADN::operator=(const ListaCadenasADN &other)
-{
-    this->data = other.data;
-    return *this;
-}
-
-// Destructor
-ListaCadenasADN::~ListaCadenasADN()
-{
 }
 
 // Devuelve un iterador que apunta al primer elemento de la lista
