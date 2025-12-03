@@ -63,8 +63,9 @@ ListaCadenasADN::ListaCadenasADN(const ListaCadenasADN &other)
 }
 
 // Operador de asignación
-ListaCadenasADN &ListaCadenasADN::operator=(const ListaCadenasADN &)
+ListaCadenasADN &ListaCadenasADN::operator=(const ListaCadenasADN &other)
 {
+    this->data = other.data;
     return *this;
 }
 

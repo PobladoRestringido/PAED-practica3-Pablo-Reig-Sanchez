@@ -134,6 +134,16 @@ int main()
     test.expectEqualVec(obtenerSecuencias(lista), {"TTGCAA", "ATG", "GATATC", "AGTCAA"}, "Orden correcto tras inserciones");
     test.expectEqualVec(obtenerSecuenciasInversa(lista), {"AGTCAA", "GATATC", "ATG", "TTGCAA"}, "Orden inverso correcto tras inserciones");
 
+    // --- Copia y operador de asignación ---
+    ListaCadenasADN copia(lista);
+    ListaCadenasADN asignada;
+    asignada = lista;
+    test.expectEqualVec(obtenerSecuencias(copia), obtenerSecuencias(lista), "Constructor de copia correcto");
+    test.expectEqualVec(obtenerSecuencias(asignada), obtenerSecuencias(lista), "Operador de asignación correcto");
+
+    lista.insertarFinal(c4);
+    test.check(obtenerSecuencias(lista) != obtenerSecuencias(copia), "Copia independiente del original");
+
     // --- Resultado global ---
     test.summary();
     return 0;
