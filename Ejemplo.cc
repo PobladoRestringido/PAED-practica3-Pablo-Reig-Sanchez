@@ -132,8 +132,7 @@ int main()
     test.expectEqual(lista.longitud(), 4, "Longitud tras 4 inserciones");
 
     test.expectEqualVec(obtenerSecuencias(lista), {"TTGCAA", "ATG", "GATATC", "AGTCAA"}, "Orden correcto tras inserciones");
-    /*
-    test.expectEqualVec(obtenerSecuenciasInversa(lista), {"AGTCAA", "GATATC", "ATG", "TTGCAA"}, "Orden inverso correcto tras inserciones");*/
+    test.expectEqualVec(obtenerSecuenciasInversa(lista), {"AGTCAA", "GATATC", "ATG", "TTGCAA"}, "Orden inverso correcto tras inserciones");
 
     // --- Resultado global ---
     test.summary();
