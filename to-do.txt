@@ -4,4 +4,7 @@
 
 - make getCadenaADN work. *
 
-- Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me pasan
+- Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
+pasan
+
+- HACER PRUEBAS VELOCIDAD

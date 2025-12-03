@@ -33,15 +33,15 @@ void IteradorLista::rstep()
 }
 
 // Operador de comparación
-bool IteradorLista::operator==(const IteradorLista &) const
+bool IteradorLista::operator==(const IteradorLista &other) const
 {
-    return true;
+    return this->iter == other.iter;
 }
 
 // Operador de comparación
-bool IteradorLista::operator!=(const IteradorLista &) const
+bool IteradorLista::operator!=(const IteradorLista &other) const
 {
-    return true;
+    return !(*this == other);
 }
 
 // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
@@ -110,7 +110,7 @@ IteradorLista ListaCadenasADN::rend()
 // Devuelve la cadena de ADN apuntada por el iterador
 CadenaADN ListaCadenasADN::getCadenaADN(IteradorLista it)
 {
-    return *it.iter;
+    return *(it.iter);
 }
 
 // Comprueba si la lista está vacía
