@@ -75,7 +75,7 @@ IteradorLista ListaCadenasADN::rend()
 // Devuelve la cadena de ADN apuntada por el iterador
 CadenaADN ListaCadenasADN::getCadenaADN(IteradorLista it)
 {
-    return *(it.iter);
+    return *it;
 }
 
 // Comprueba si la lista está vacía
