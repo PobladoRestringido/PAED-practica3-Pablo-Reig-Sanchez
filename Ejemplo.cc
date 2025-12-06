@@ -145,6 +145,11 @@ int main()
     test.check(obtenerSecuencias(lista) != obtenerSecuencias(copia), "Copia independiente del original");
     test.check(obtenerSecuencias(lista) != obtenerSecuencias(asignada), "Asignada independiente del original");
 
+    // --- Asignar en posición ---
+    IteradorLista it = copia.begin();
+    copia.asignar(it, c4); // reemplaza el primero
+    test.expectEqualVec(obtenerSecuencias(copia), {"GATGAT", "ATG", "GATATC", "AGTCAA"}, "asignar() modifica nodo correcto");
+
     // --- Resultado global ---
     test.summary();
     return 0;

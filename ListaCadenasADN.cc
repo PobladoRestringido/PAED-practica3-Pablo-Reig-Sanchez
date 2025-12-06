@@ -104,8 +104,9 @@ bool ListaCadenasADN::insertarDespues(IteradorLista, const CadenaADN &)
 }
 
 // Asigna la cadena de ADN la posición apuntada por el iterador
-bool ListaCadenasADN::asignar(IteradorLista, const CadenaADN &)
+bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
 {
+    *(it.iter) = new_cadena;
     return true;
 }
 

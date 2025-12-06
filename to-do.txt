@@ -1,8 +1,13 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- check tests one by one (comment rest) 
+- test asignar en posición
 
-- tests operador asignación (ampliar)*
+    - returns false for bad iterators
+    - implement operator* for my class to reduce redundancy*
+
+- test borrar primera/ultima
+
+- test insertar posicion intermedia
 
 - Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
 pasan
