@@ -83,7 +83,7 @@ CadenaADN ListaCadenasADN::getCadenaADN(IteradorLista it)
 // Comprueba si la lista está vacía
 bool ListaCadenasADN::esVacia()
 {
-    return true;
+    return data.empty();
 }
 
 // Inserta una cadena de ADN al principio de la lista
@@ -123,7 +123,7 @@ bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
 // Borra la primera cadena de ADN de la lista
 bool ListaCadenasADN::borrarPrimera()
 {
-    if (!data.empty())
+    if (!esVacia())
     {
         data.pop_front();
     }
@@ -133,7 +133,7 @@ bool ListaCadenasADN::borrarPrimera()
 // Borra la última cadena de ADN de la lista
 bool ListaCadenasADN::borrarUltima()
 {
-    if (!data.empty())
+    if (!esVacia())
     {
         data.pop_back();
     }
