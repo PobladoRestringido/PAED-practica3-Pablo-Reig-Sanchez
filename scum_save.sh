@@ -2,5 +2,5 @@
 # Stage all changes and commit with a dummy message
 
 git add .
-git commit -m "auto-commit"
+git commit -m "$(date '+%Y-%m-%d %H:%M:%S')"
 git push
