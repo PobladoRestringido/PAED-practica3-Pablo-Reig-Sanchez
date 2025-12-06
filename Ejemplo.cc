@@ -149,6 +149,8 @@ int main()
     IteradorLista it = copia.begin();
     copia.asignar(it, c4); // reemplaza el primero
     test.expectEqualVec(obtenerSecuencias(copia), {"GATGAT", "ATG", "GATATC", "AGTCAA"}, "asignar() modifica nodo correcto");
+    IteradorLista badIterator;
+    test.check(!copia.asignar(badIterator, c1), "`ListaCadenasADN::asignar()` returns False for invalid iterator");
 
     // --- Resultado global ---
     test.summary();
