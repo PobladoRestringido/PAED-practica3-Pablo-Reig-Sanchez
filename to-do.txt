@@ -2,8 +2,7 @@
 
 - test asignar en posición
 
-    - returns false for bad iterators
-    - implement operator* for my class to reduce redundancy*
+    - returns false for bad iterators*
 
 - test borrar primera/ultima
 
