@@ -143,6 +143,7 @@ int main()
 
     lista.insertarFinal(c4);
     test.check(obtenerSecuencias(lista) != obtenerSecuencias(copia), "Copia independiente del original");
+    test.check(obtenerSecuencias(lista) != obtenerSecuencias(asignada), "Asignada independiente del original");
 
     // --- Resultado global ---
     test.summary();
