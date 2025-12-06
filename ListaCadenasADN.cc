@@ -24,6 +24,11 @@ bool IteradorLista::operator!=(const IteradorLista &other) const
     return !(*this == other);
 }
 
+CadenaADN IteradorLista::operator*() const
+{
+    return *(iter);
+}
+
 // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
 bool IteradorLista::esVacio() const
 {

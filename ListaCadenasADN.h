@@ -21,6 +21,9 @@ public:
    bool operator==(const IteradorLista &) const;
    // Operador de comparación
    bool operator!=(const IteradorLista &) const;
+
+   CadenaADN operator*() const;
+
    // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
    bool esVacio() const;
 };
