@@ -161,6 +161,19 @@ int main()
     test.check(!vacia.borrarPrimera(), "BorrarPrimera de lista vacía correcto");
     test.check(!vacia.borrarUltima(), "BorrarUltima de lista vacía correcto");
 
+    // --- Insertar en posición intermedia ---
+    ListaCadenasADN lista2;
+    lista2.insertarFinal(c1); // [ATG]
+    lista2.insertarFinal(c2); // [ATG, GATATC]
+    lista2.insertarFinal(c3); // [ATG, GATATC, AGTCAA]
+    IteradorLista itpos = lista2.begin();
+    itpos.step();               // posición intermedia
+    lista2.insertar(itpos, c4); // [ATG, GATGAT, GATATC, AGTCAA]
+    test.expectEqualVec(obtenerSecuencias(lista2), {"ATG", "GATGAT", "GATATC", "AGTCAA"},
+                        "Inserción intermedia correcta");
+    test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"AGTCAA", "GATATC", "GATGAT", "ATG"},
+                        "Inserción intermedia correcta (orden inverso)");
+
     // --- Resultado global ---
     test.summary();
     return 0;

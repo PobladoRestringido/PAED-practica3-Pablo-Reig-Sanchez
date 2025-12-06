@@ -1,10 +1,8 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
 
-
-- test borrar primera/ultima
-
 - test insertar posicion intermedia
+    - returns false for empty iterator
 
 - Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
 pasan

@@ -99,8 +99,10 @@ void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
-bool ListaCadenasADN::insertar(IteradorLista, const CadenaADN &)
+bool ListaCadenasADN::insertar(IteradorLista it, const CadenaADN &cadena)
 {
+    data.insert(it.iter, cadena);
+
     return true;
 }
 

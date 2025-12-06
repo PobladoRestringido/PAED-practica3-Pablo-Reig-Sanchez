@@ -164,8 +164,10 @@ int main()
     IteradorLista itpos = lista2.begin();
     itpos.step();               // posición intermedia
     lista2.insertar(itpos, c4); // [ATG, GATGAT, GATATC, AGTCAA]
-    test.expectEqualVec(obtenerSecuencias(lista2), {"ATG", "GATGAT", "GATATC", "AGTCAA"}, "Inserción intermedia correcta");
-    test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"AGTCAA", "GATATC", "GATGAT", "ATG"}, "Inserción intermedia correcta (orden inverso)");
+    test.expectEqualVec(obtenerSecuencias(lista2), {"ATG", "GATGAT", "GATATC", "AGTCAA"},
+                        "Inserción intermedia correcta");
+    test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"AGTCAA", "GATATC", "GATGAT", "ATG"},
+                        "Inserción intermedia correcta (orden inverso)");
 
     // --- Contar() ---
     test.expectEqual(lista2.contar(c4), 1, "Contar() encuentra 1 coincidencia");
