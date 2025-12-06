@@ -1,2 +1,6 @@
 #!/bin/bash
-( make ; echo "" ; valgrind ./main ; echo "" ; make clean ) | less
+make
+echo ""
+valgrind ./main
+echo ""
+make clean
