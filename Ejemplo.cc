@@ -152,6 +152,15 @@ int main()
     IteradorLista badIterator;
     test.check(!copia.asignar(badIterator, c1), "`ListaCadenasADN::asignar()` returns False for invalid iterator");
 
+    // --- BorrarPrimera y BorrarUltima ---
+    copia.borrarPrimera();
+    copia.borrarUltima();
+    test.expectEqualVec(obtenerSecuencias(copia), {"ATG", "GATATC"}, "Borrado de extremos correcto");
+
+    ListaCadenasADN vacia;
+    test.check(!vacia.borrarPrimera(), "BorrarPrimera de lista vacía correcto");
+    test.check(!vacia.borrarUltima(), "BorrarUltima de lista vacía correcto");
+
     // --- Resultado global ---
     test.summary();
     return 0;

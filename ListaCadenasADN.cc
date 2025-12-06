@@ -123,12 +123,20 @@ bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
 // Borra la primera cadena de ADN de la lista
 bool ListaCadenasADN::borrarPrimera()
 {
+    if (!data.empty())
+    {
+        data.pop_front();
+    }
     return true;
 }
 
 // Borra la última cadena de ADN de la lista
 bool ListaCadenasADN::borrarUltima()
 {
+    if (!data.empty())
+    {
+        data.pop_back();
+    }
     return true;
 }
 

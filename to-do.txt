@@ -1,8 +1,6 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- test asignar en posición
 
-    - returns false for bad iterators*
 
 - test borrar primera/ultima
 
