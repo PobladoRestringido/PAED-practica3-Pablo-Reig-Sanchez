@@ -24,9 +24,9 @@ bool IteradorLista::operator!=(const IteradorLista &other) const
     return !(*this == other);
 }
 
-CadenaADN IteradorLista::operator*() const
+CadenaADN &IteradorLista::operator*() const
 {
-    return *(iter);
+    return *iter;
 }
 
 // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
@@ -111,7 +111,7 @@ bool ListaCadenasADN::insertarDespues(IteradorLista, const CadenaADN &)
 // Asigna la cadena de ADN la posición apuntada por el iterador
 bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
 {
-    *(it.iter) = new_cadena;
+    *it = new_cadena;
     return true;
 }
 
