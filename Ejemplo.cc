@@ -174,6 +174,8 @@ int main()
     test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"AGTCAA", "GATATC", "GATGAT", "ATG"},
                         "Inserción intermedia correcta (orden inverso)");
 
+    test.check(!lista2.insertar(badIterator, c1), "`ListaCadenasADN::insertar()` returns False for invalid iterator");
+
     // --- Resultado global ---
     test.summary();
     return 0;
