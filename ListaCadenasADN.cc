@@ -179,9 +179,17 @@ ListaCadenasADN ListaCadenasADN::concatenar(ListaCadenasADN &)
 
 // Devuelve una nueva lista con todos los elementos de la lista actual
 // que no están en la que se pasa como parámetro
-ListaCadenasADN ListaCadenasADN::diferencia(ListaCadenasADN &)
+ListaCadenasADN ListaCadenasADN::diferencia(ListaCadenasADN &other_lista)
 {
-    return ListaCadenasADN();
+    ListaCadenasADN difference_list;
+    for (IteradorLista it = begin(); it != end(); it.step())
+    {
+        CadenaADN cur_cadena = *it;
+        if (other_lista.contar(cur_cadena) == 0)
+            difference_list.insertarFinal(cur_cadena);
+    }
+
+    return difference_list;
 }
 
 // Devuelve una cadena de ADN con la concatenación de todas las secuencias de la lista

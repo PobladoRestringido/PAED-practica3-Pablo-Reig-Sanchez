@@ -183,6 +183,16 @@ int main()
 
     test.expectEqual(lista2.contar(c4bis), 2, "Contar() encuentra 2 coincidencias con distina descripción");
 
+    // --- diferencia() ---
+    ListaCadenasADN lista3;
+    lista3.insertarInicio(c3);
+    lista3.insertarInicio(c2); // [GATATC, AGTCAA]
+    ListaCadenasADN dif = lista2.diferencia(lista3);
+    test.expectEqualVec(obtenerSecuencias(dif), {"ATG", "GATGAT", "GATGAT"},
+                        "diferencia() devuelve elementos esperados");
+    test.expectEqualVec(obtenerSecuenciasInversa(dif), {"GATGAT", "GATGAT", "ATG"},
+                        "diferencia() devuelve elementos esperados (orden inverso)");
+
     // --- Resultado global ---
     test.summary();
     return 0;
