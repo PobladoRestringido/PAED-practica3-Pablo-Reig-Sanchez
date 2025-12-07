@@ -24,6 +24,8 @@ public:
 
    CadenaADN &operator*() const;
 
+   void operator++();
+
    // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
    bool esVacio() const;
 };

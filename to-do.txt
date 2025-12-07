@@ -1,6 +1,15 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
+-test concatenar
+
+-test diferencia
+    - refactor to use range-based loops*
+
+- remove duplication between step() and operator++ in IteradorLista
+
 - test past methods with empty iterator don't modify list
+
+- implement operator++ for IteradorLista
 
 - Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
 pasan

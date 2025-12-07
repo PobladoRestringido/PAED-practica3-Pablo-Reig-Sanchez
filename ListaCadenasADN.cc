@@ -29,6 +29,11 @@ CadenaADN &IteradorLista::operator*() const
     return *iter;
 }
 
+void IteradorLista::operator++()
+{
+    ++iter;
+}
+
 // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
 bool IteradorLista::esVacio() const
 {
@@ -182,9 +187,8 @@ ListaCadenasADN ListaCadenasADN::concatenar(ListaCadenasADN &)
 ListaCadenasADN ListaCadenasADN::diferencia(ListaCadenasADN &other_lista)
 {
     ListaCadenasADN difference_list;
-    for (IteradorLista it = begin(); it != end(); it.step())
+    for (const auto &cur_cadena : *this)
     {
-        CadenaADN cur_cadena = *it;
         if (other_lista.contar(cur_cadena) == 0)
             difference_list.insertarFinal(cur_cadena);
     }
