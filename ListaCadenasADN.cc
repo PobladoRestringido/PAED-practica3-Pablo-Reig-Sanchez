@@ -158,9 +158,16 @@ int ListaCadenasADN::longitud()
 
 // Cuenta el número de apariciones de la cadena de ADN que se pasa como parámetro
 //(según su operador ==)
-int ListaCadenasADN::contar(const CadenaADN &)
+int ListaCadenasADN::contar(const CadenaADN &cadena)
 {
-    return 0;
+    int count = 0;
+    for (IteradorLista it = begin(); it != end(); it.step())
+    {
+        if (*it == cadena)
+            ++count;
+    }
+
+    return count;
 }
 
 // Devuelve una nueva lista con todos los elementos de la lista actual y,

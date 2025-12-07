@@ -176,6 +176,13 @@ int main()
 
     test.check(!lista2.insertar(badIterator, c1), "`ListaCadenasADN::insertar()` returns False for invalid iterator");
 
+    // --- Contar() ---
+    test.expectEqual(lista2.contar(c4), 1, "Contar() encuentra 1 coincidencia");
+    lista2.insertarFinal(c4);
+    test.expectEqual(lista2.contar(c4), 2, "Contar() encuentra 2 coincidencias tras duplicar");
+
+    test.expectEqual(lista2.contar(c4bis), 2, "Contar() encuentra 2 coincidencias con distina descripción");
+
     // --- Resultado global ---
     test.summary();
     return 0;
