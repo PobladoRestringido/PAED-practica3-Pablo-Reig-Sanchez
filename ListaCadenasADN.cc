@@ -3,7 +3,7 @@
 // Avanza una posición en la lista
 void IteradorLista::step()
 {
-    ++iter;
+    ++(*this);
 }
 
 // Retrocede una posición en la lista
@@ -166,9 +166,9 @@ int ListaCadenasADN::longitud()
 int ListaCadenasADN::contar(const CadenaADN &cadena)
 {
     int count = 0;
-    for (IteradorLista it = begin(); it != end(); it.step())
+    for (const auto &cur_cadena : *this)
     {
-        if (*it == cadena)
+        if (cur_cadena == cadena)
             ++count;
     }
 

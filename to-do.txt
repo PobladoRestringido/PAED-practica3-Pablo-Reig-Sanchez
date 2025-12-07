@@ -2,9 +2,6 @@
 
 -test concatenar
 
--test diferencia
-    - refactor to use range-based loops*
-
 - remove duplication between step() and operator++ in IteradorLista
 
 - test past methods with empty iterator don't modify list
