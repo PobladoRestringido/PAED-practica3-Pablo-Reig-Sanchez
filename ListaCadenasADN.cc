@@ -177,9 +177,14 @@ int ListaCadenasADN::contar(const CadenaADN &cadena)
 
 // Devuelve una nueva lista con todos los elementos de la lista actual y,
 // a continuación, todos los de la lista que se pasa como parámetro
-ListaCadenasADN ListaCadenasADN::concatenar(ListaCadenasADN &)
+ListaCadenasADN ListaCadenasADN::concatenar(ListaCadenasADN &other)
 {
-    return ListaCadenasADN();
+    ListaCadenasADN new_list = ListaCadenasADN(*this);
+
+    for (const auto &other_cadena : other)
+        new_list.insertarFinal(other_cadena);
+
+    return new_list;
 }
 
 // Devuelve una nueva lista con todos los elementos de la lista actual

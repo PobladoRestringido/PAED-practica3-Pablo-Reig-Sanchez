@@ -2,11 +2,9 @@
 
 -test concatenar
 
-- remove duplication between step() and operator++ in IteradorLista
+- remove duplication between rstep() and operator-- in IteradorLista*
 
 - test past methods with empty iterator don't modify list
-
-- implement operator++ for IteradorLista*
 
 - implement -- too
 

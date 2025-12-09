@@ -193,6 +193,16 @@ int main()
     test.expectEqualVec(obtenerSecuenciasInversa(dif), {"GATGAT", "GATGAT", "ATG"},
                         "diferencia() devuelve elementos esperados (orden inverso)");
 
+    // --- concatenar(Lista) ---
+    ListaCadenasADN concat;
+    concat = lista2.concatenar(lista3);
+    test.expectEqualVec(obtenerSecuencias(concat),
+                        {"ATG", "GATGAT", "GATATC", "AGTCAA", "GATGAT", "GATATC", "AGTCAA"},
+                        "concatenar(Lista) mantiene orden");
+    test.expectEqualVec(obtenerSecuenciasInversa(concat),
+                        {"AGTCAA", "GATATC", "GATGAT", "AGTCAA", "GATATC", "GATGAT", "ATG"},
+                        "concatenar(Lista) mantiene orden inverso");
+
     // --- Resultado global ---
     test.summary();
     return 0;
