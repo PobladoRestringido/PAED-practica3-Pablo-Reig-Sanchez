@@ -181,8 +181,7 @@ ListaCadenasADN ListaCadenasADN::concatenar(ListaCadenasADN &other)
 {
     ListaCadenasADN new_list = ListaCadenasADN(*this);
 
-    for (const auto &other_cadena : other)
-        new_list.insertarFinal(other_cadena);
+    new_list.data.insert(new_list.data.end(), other.data.begin(), other.data.end());
 
     return new_list;
 }
