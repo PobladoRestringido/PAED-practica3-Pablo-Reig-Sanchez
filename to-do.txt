@@ -1,7 +1,6 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- test concatenar()*
-    - test empty description in regular case*
+
 
 - improve testability by making my objects printable
 

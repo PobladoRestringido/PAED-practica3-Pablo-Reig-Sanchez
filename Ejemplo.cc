@@ -225,6 +225,8 @@ int main()
     string esperado = "ATGGATGATGATATCAGTCAAGATGAT";
     test.expectEqual(total.getSecuencia(), esperado,
                      "concatenar() crea secuencia completa correcta");
+    test.check(total.getDescripcion() == "",
+               "`ListaCadenasADN::concatenar()` returns empty description");
 
     ListaCadenasADN listaVacia;
     CadenaADN cadenaVacia = listaVacia.concatenar();
