@@ -121,8 +121,7 @@ bool ListaCadenasADN::insertarDespues(IteradorLista it, const CadenaADN &new_cad
         return false;
 
     ++it;
-    insertar(it, new_cadena);
-    return true;
+    return insertar(it, new_cadena);
 }
 
 // Asigna la cadena de ADN la posición apuntada por el iterador
