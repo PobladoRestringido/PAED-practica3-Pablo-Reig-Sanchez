@@ -243,6 +243,9 @@ int main()
                         "borrar (Iterador): resultado correcto");
     test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"GATGAT", "AGTCAA", "GATATC", "ATG"},
                         "borrar (Iterador): resultado correcto (orden inverso)");
+    test.check(
+        itb.esVacio(),
+        "`ListaCadenasADN::borrar(it)` invalidates iterator passed as parameter");
 
     // --- Resultado global ---
     test.summary();

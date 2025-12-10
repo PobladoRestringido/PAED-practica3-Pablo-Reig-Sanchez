@@ -153,6 +153,7 @@ bool ListaCadenasADN::borrarUltima()
 bool ListaCadenasADN::borrar(IteradorLista &it)
 {
     data.erase(it.iter);
+    it = IteradorLista();
     return true;
 }
 
