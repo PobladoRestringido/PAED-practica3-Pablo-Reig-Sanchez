@@ -247,6 +247,27 @@ int main()
         itb.esVacio(),
         "`ListaCadenasADN::borrar(it)` invalidates iterator passed as parameter");
 
+    IteradorLista emptyIterator;
+    test.check(
+        !lista2.borrar(emptyIterator),
+        "`ListaCadenasADN::borrar(it)` returns false for empty iterator");
+
+    // --- aCadena() ---
+    ListaCadenasADN lista4;
+    lista4.insertarFinal(c1);
+    lista4.insertarFinal(c2);
+    string salida = lista4.aCadena();
+    test.check(
+        salida == "Inicio:ATG\nEcoRV:GATATC",
+        "aCadena devuelve la salida correcta");
+    // cout << "Salida `lista4.aCadena()`\n" << salida;
+
+    ListaCadenasADN lista5;
+    salida = lista5.aCadena();
+    test.check(
+        salida == "",
+        "aCadena devuelve la salida correcta para lista vacía");
+
     // --- Resultado global ---
     test.summary();
     return 0;

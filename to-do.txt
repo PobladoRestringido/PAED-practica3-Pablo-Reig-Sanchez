@@ -1,14 +1,14 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
+- test aCadena()
 
-
-- improve testability by making my objects printable
+- improve testability by making my objects printable/ implementing operator<<
 
 - test borrar()
 
 - test aCadena()
 
-- remove duplication between rstep() and operator-- in IteradorLista*
+- remove duplication between rstep() and operator-- in IteradorLista
 
 - test past methods with empty iterator don't modify list
 

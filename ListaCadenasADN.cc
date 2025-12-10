@@ -152,6 +152,9 @@ bool ListaCadenasADN::borrarUltima()
 // Borra la cadena de ADN a la que apunta el iterador
 bool ListaCadenasADN::borrar(IteradorLista &it)
 {
+    if (it.esVacio())
+        return false;
+
     data.erase(it.iter);
     it = IteradorLista();
     return true;
@@ -216,7 +219,16 @@ CadenaADN ListaCadenasADN::concatenar()
 // Devuelve una cadena de texto con el contenido completo de la lista
 string ListaCadenasADN::aCadena()
 {
-    return "";
+    std::string returnString;
+    for (const auto &cur_cadena : *this)
+    {
+        returnString += cur_cadena.getDescripcion();
+        returnString += ":";
+        returnString += cur_cadena.getSecuencia();
+        returnString += "\n";
+    }
+
+    return returnString.substr(0, returnString.length() - 1);
 }
 
 // NUEVO: Devuelve la frecuencia del codón pasado como parámetro
