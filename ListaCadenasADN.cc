@@ -150,8 +150,9 @@ bool ListaCadenasADN::borrarUltima()
 }
 
 // Borra la cadena de ADN a la que apunta el iterador
-bool ListaCadenasADN::borrar(IteradorLista &)
+bool ListaCadenasADN::borrar(IteradorLista &it)
 {
+    data.erase(it.iter);
     return true;
 }
 

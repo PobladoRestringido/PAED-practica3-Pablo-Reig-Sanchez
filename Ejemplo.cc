@@ -234,6 +234,16 @@ int main()
     test.check(cadenaVacia == cadenaEsperado,
                "`ListaCadenasADN::concatenar()` returns expected for empty case");
 
+    // ---  borrar(Iterador) ---
+    IteradorLista itb = lista2.begin();
+    itb.step(); // GATGAT
+    lista2.borrar(itb);
+    test.expectEqual(lista2.contar(c4), 1, "borrar(Iterador) elimina un nodo");
+    test.expectEqualVec(obtenerSecuencias(lista2), {"ATG", "GATATC", "AGTCAA", "GATGAT"},
+                        "borrar (Iterador): resultado correcto");
+    test.expectEqualVec(obtenerSecuenciasInversa(lista2), {"GATGAT", "AGTCAA", "GATATC", "ATG"},
+                        "borrar (Iterador): resultado correcto (orden inverso)");
+
     // --- Resultado global ---
     test.summary();
     return 0;
