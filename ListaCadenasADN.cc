@@ -1,4 +1,5 @@
 #include "ListaCadenasADN.h"
+#include <sstream>
 
 // Avanza una posición en la lista
 void IteradorLista::step()
@@ -219,16 +220,20 @@ CadenaADN ListaCadenasADN::concatenar()
 // Devuelve una cadena de texto con el contenido completo de la lista
 string ListaCadenasADN::aCadena()
 {
-    std::string returnString;
-    for (const auto &cur_cadena : *this)
-    {
-        returnString += cur_cadena.getDescripcion();
-        returnString += ":";
-        returnString += cur_cadena.getSecuencia();
-        returnString += "\n";
-    }
+    std::ostringstream oss;
+    IteradorLista it = this->begin();
+    IteradorLista end = this->end();
 
-    return returnString.substr(0, returnString.length() - 1);
+    while (it != end)
+    {
+        CadenaADN cur_cadena = getCadenaADN(it);
+        oss << cur_cadena.getDescripcion() << ':' << cur_cadena.getSecuencia();
+        ++it;
+
+        if (it != end)
+            oss << '\n';
+    }
+    return oss.str();
 }
 
 // NUEVO: Devuelve la frecuencia del codón pasado como parámetro

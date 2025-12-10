@@ -1,6 +1,6 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- test aCadena()
+
 
 - improve testability by making my objects printable/ implementing operator<<
 
