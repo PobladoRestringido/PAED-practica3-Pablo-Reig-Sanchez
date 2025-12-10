@@ -280,7 +280,9 @@ int main()
     it = lista10.begin();
     /*Inserta en la lista 10 las cadenas c1, c2 y c3,
     de manera que la lista resultante sea [ATG, GATATC, AGTCAA] */
-    lista10.insertarDespues(it, c1);
+    test.check(
+        lista10.insertarDespues(it, c1),
+        "`ListaCadenasADN::insertarDespues()` returns True for valid iterator");
     ++it;
     lista10.insertarDespues(it, c2);
     ++it;
