@@ -286,9 +286,8 @@ int main()
     ++it;
     lista10.insertarDespues(it, c3);
 
-    IteradorLista it10;
+    IteradorLista it10 = it;
     /* Haz que el iterador it10 apunte al segundo elemento de la lista (GATATC) */
-    it10 = it;
 
     /* Llama a insertarDespues para insertar después de la posición
     apuntada por it10 la cadena c4 */
