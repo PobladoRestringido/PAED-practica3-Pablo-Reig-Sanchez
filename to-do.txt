@@ -1,6 +1,8 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- test vaciar*
+- test insertarDespues
+    - posicion intermedia*
+    - posicion final
 
 - improve testability by making my objects printable/ implementing operator<<
 

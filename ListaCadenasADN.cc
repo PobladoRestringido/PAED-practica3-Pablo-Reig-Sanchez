@@ -115,8 +115,10 @@ bool ListaCadenasADN::insertar(IteradorLista it, const CadenaADN &cadena)
 }
 
 // NUEVO: Inserta una cadena de ADN justo después de la posición apuntada por el iterador
-bool ListaCadenasADN::insertarDespues(IteradorLista, const CadenaADN &)
+bool ListaCadenasADN::insertarDespues(IteradorLista it, const CadenaADN &new_cadena)
 {
+    ++it;
+    insertar(it, new_cadena);
     return true;
 }
 

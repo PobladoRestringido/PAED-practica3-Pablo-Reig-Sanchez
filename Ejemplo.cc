@@ -273,6 +273,36 @@ int main()
         lista2.borrarPrimera();
     test.expectEqual(lista2.longitud(), 0, "Borrado completo de lista correcto");
 
+    /*  PRUEBAS QUE DEBEN SER ESCRITAS POR EL ALUMNADO  */
+
+    // --- InsertarDespues en posición intermedia ---
+    ListaCadenasADN lista10;
+    it = lista10.begin();
+    /*Inserta en la lista 10 las cadenas c1, c2 y c3,
+    de manera que la lista resultante sea [ATG, GATATC, AGTCAA] */
+    lista10.insertarDespues(it, c1);
+    ++it;
+    lista10.insertarDespues(it, c2);
+    ++it;
+    lista10.insertarDespues(it, c3);
+
+    IteradorLista it10;
+    /* Haz que el iterador it10 apunte al segundo elemento de la lista (GATATC) */
+    it10 = it;
+
+    /* Llama a insertarDespues para insertar después de la posición
+    apuntada por it10 la cadena c4 */
+    lista10.insertarDespues(it10, c4);
+
+    test.expectEqualVec(
+        obtenerSecuencias(lista10),
+        {"ATG", "GATATC", "GATGAT", "AGTCAA"},
+        "Inserción intermedia (después) correcta");
+    test.expectEqualVec(
+        obtenerSecuenciasInversa(lista10),
+        {"AGTCAA", "GATGAT", "GATATC", "ATG"},
+        "Inserción intermedia (después) correcta (orden inverso)");
+
     // --- Resultado global ---
     test.summary();
     return 0;
