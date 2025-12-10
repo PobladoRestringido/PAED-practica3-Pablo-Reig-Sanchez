@@ -268,6 +268,11 @@ int main()
         salida == "",
         "aCadena devuelve la salida correcta para lista vacía");
 
+    // --- Vaciar---
+    while (!lista2.esVacia())
+        lista2.borrarPrimera();
+    test.expectEqual(lista2.longitud(), 0, "Borrado completo de lista correcto");
+
     // --- Resultado global ---
     test.summary();
     return 0;
