@@ -1,7 +1,7 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
 - test insertarDespues
-    - posicion intermedia*
+    - returns false when appropriate*
     - posicion final
 
 - improve testability by making my objects printable/ implementing operator<<

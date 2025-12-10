@@ -302,6 +302,10 @@ int main()
         {"AGTCAA", "GATGAT", "GATATC", "ATG"},
         "Inserción intermedia (después) correcta (orden inverso)");
 
+    test.check(
+        !lista10.insertarDespues(emptyIterator, c1),
+        "`ListaCadenasADN::insertarDespues()` returns False for empty iterator");
+
     // --- Resultado global ---
     test.summary();
     return 0;
