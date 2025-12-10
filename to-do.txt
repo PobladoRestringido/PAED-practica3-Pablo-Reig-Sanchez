@@ -1,8 +1,10 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
--test concatenar*
-    - test doesn't modify current*
-    - test doesn't modify other
+- test concatenar()*
+
+- test borrar()
+
+- test aCadena()
 
 - remove duplication between rstep() and operator-- in IteradorLista*
 

@@ -203,6 +203,28 @@ int main()
                         {"AGTCAA", "GATATC", "GATGAT", "AGTCAA", "GATATC", "GATGAT", "ATG"},
                         "concatenar(Lista) mantiene orden inverso");
 
+    test.expectEqualVec(obtenerSecuencias(lista2),
+                        {"ATG", "GATGAT", "GATATC", "AGTCAA", "GATGAT"},
+                        "`ListaCadenasADN::concatenar(Lista)` doesn't modify object it's called on");
+    test.expectEqualVec(obtenerSecuenciasInversa(lista2),
+                        {"GATGAT", "AGTCAA", "GATATC", "GATGAT", "ATG"},
+                        "`ListaCadenasADN::concatenar(Lista)` doesn't modify object "
+                        "it's called on (inverse check)");
+
+    test.expectEqualVec(obtenerSecuencias(lista3),
+                        {"GATATC", "AGTCAA"},
+                        "`ListaCadenasADN::concatenar(Lista)` doesn't modify other object "
+                        "passed as parameter");
+    test.expectEqualVec(obtenerSecuenciasInversa(lista3),
+                        {"AGTCAA", "GATATC"},
+                        "`ListaCadenasADN::concatenar(Lista)` doesn't modify other object "
+                        "passed as parameter (inverse check)");
+
+    // --- concatenar() genera CadenaADN con secuencia total ---
+    CadenaADN total = lista2.concatenar();
+    string esperado = "ATGGATGATGATATCAGTCAAGATGAT";
+    test.expectEqual(total.getSecuencia(), esperado, "concatenar() crea secuencia completa correcta");
+
     // --- Resultado global ---
     test.summary();
     return 0;
