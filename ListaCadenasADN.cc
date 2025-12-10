@@ -226,7 +226,7 @@ string ListaCadenasADN::aCadena()
 
     while (it != end)
     {
-        CadenaADN cur_cadena = getCadenaADN(it);
+        const CadenaADN &cur_cadena = getCadenaADN(it);
         oss << cur_cadena.getDescripcion() << ':' << cur_cadena.getSecuencia();
         ++it;
 
