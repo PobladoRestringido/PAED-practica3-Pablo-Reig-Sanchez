@@ -223,7 +223,14 @@ int main()
     // --- concatenar() genera CadenaADN con secuencia total ---
     CadenaADN total = lista2.concatenar();
     string esperado = "ATGGATGATGATATCAGTCAAGATGAT";
-    test.expectEqual(total.getSecuencia(), esperado, "concatenar() crea secuencia completa correcta");
+    test.expectEqual(total.getSecuencia(), esperado,
+                     "concatenar() crea secuencia completa correcta");
+
+    ListaCadenasADN listaVacia;
+    CadenaADN cadenaVacia = listaVacia.concatenar();
+    CadenaADN cadenaEsperado;
+    test.check(cadenaVacia == cadenaEsperado,
+               "`ListaCadenasADN::concatenar()` returns expected for empty case");
 
     // --- Resultado global ---
     test.summary();
