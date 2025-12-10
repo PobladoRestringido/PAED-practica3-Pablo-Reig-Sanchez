@@ -1,6 +1,9 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
 - test concatenar()*
+    - test regular case*
+    - test empty case
+    - test empty description
 
 - test borrar()
 

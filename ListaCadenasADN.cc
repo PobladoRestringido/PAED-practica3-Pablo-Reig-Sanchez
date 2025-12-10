@@ -205,9 +205,8 @@ ListaCadenasADN ListaCadenasADN::diferencia(ListaCadenasADN &other_lista)
 CadenaADN ListaCadenasADN::concatenar()
 {
     std::string concat;
-
     for (const auto &cadena : *this)
-        concat = concat + cadena.getSecuencia();
+        concat += cadena.getSecuencia();
 
     return CadenaADN(concat, "");
 }
