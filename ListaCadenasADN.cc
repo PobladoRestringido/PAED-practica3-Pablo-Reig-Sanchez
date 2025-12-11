@@ -121,6 +121,12 @@ bool ListaCadenasADN::insertarDespues(IteradorLista it, const CadenaADN &new_cad
         return false;
 
     ++it;
+
+    if (it == end())
+    {
+        insertarFinal(new_cadena);
+        return true;
+    }
     return insertar(it, new_cadena);
 }
 

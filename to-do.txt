@@ -1,8 +1,9 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
 - test insertarDespues
-    - returns false when appropriate*
-    - posicion final
+    - insertar posicion final*
+
+make operator++ private
 
 - improve testability by making my objects printable/ implementing operator<<
 

@@ -82,6 +82,16 @@ public:
         cout << "\n=== RESULTADO FINAL: " << passed << "/" << total
              << " pruebas superadas (" << (100.0 * passed / total) << "%) ===" << endl;
     }
+
+    ListaCadenasADN makeLista(std::initializer_list<CadenaADN> elems)
+    {
+        ListaCadenasADN l;
+        for (const auto &e : elems)
+        {
+            l.insertarFinal(e);
+        }
+        return l;
+    }
 };
 
 /* ========= Funciones auxiliares ========= */
@@ -307,6 +317,34 @@ int main()
     test.check(
         !lista10.insertarDespues(emptyIterator, c1),
         "`ListaCadenasADN::insertarDespues()` returns False for empty iterator");
+
+    // --- InsertarDespues en posición final ---
+    ListaCadenasADN lista11;
+    /*Inserta en la lista11 las cadenas c1, c2 y c3,
+    de manera que la lista resultante sea [ATG, GATATC, AGTCAA] */
+    it = lista11.begin();
+    lista11.insertarDespues(it, c1);
+    ++it;
+    lista11.insertarDespues(it, c2);
+    ++it;
+    lista11.insertarDespues(it, c3);
+
+    IteradorLista it11 = it;
+    /* Haz que el iterador it11 apunte al último elemento de la lista (AGTCAA) */
+    ++it11;
+
+    /* Llama a insertarDespues para insertar después de la posición
+    apuntada por it11 la cadena c4 */
+    lista11.insertarDespues(it11, c4);
+
+    test.expectEqualVec(
+        obtenerSecuencias(lista11),
+        {"ATG", "GATATC", "AGTCAA", "GATGAT"},
+        "Inserción intermedia (después) correcta");
+    test.expectEqualVec(
+        obtenerSecuenciasInversa(lista11),
+        {"GATGAT", "AGTCAA", "GATATC", "ATG"},
+        "Inserción intermedia (después) correcta (orden inverso)");
 
     // --- Resultado global ---
     test.summary();
