@@ -286,20 +286,13 @@ int main()
     /*  PRUEBAS QUE DEBEN SER ESCRITAS POR EL ALUMNADO  */
 
     // --- InsertarDespues en posición intermedia ---
-    ListaCadenasADN lista10;
-    it = lista10.begin();
     /*Inserta en la lista 10 las cadenas c1, c2 y c3,
     de manera que la lista resultante sea [ATG, GATATC, AGTCAA] */
-    test.check(
-        lista10.insertarDespues(it, c1),
-        "`ListaCadenasADN::insertarDespues()` returns True for valid iterator");
-    ++it;
-    lista10.insertarDespues(it, c2);
-    ++it;
-    lista10.insertarDespues(it, c3);
+    ListaCadenasADN lista10 = test.makeLista({c1, c2, c3});
 
-    IteradorLista it10 = it;
     /* Haz que el iterador it10 apunte al segundo elemento de la lista (GATATC) */
+    IteradorLista it10 = lista10.begin();
+    ++it10;
 
     /* Llama a insertarDespues para insertar después de la posición
     apuntada por it10 la cadena c4 */
@@ -315,23 +308,22 @@ int main()
         "Inserción intermedia (después) correcta (orden inverso)");
 
     test.check(
+        lista10.insertarDespues(it10, c1),
+        "`ListaCadenasADN::insertarDespues()` returns True for valid iterator");
+
+    test.check(
         !lista10.insertarDespues(emptyIterator, c1),
         "`ListaCadenasADN::insertarDespues()` returns False for empty iterator");
 
     // --- InsertarDespues en posición final ---
-    ListaCadenasADN lista11;
+
     /*Inserta en la lista11 las cadenas c1, c2 y c3,
     de manera que la lista resultante sea [ATG, GATATC, AGTCAA] */
-    it = lista11.begin();
-    lista11.insertarDespues(it, c1);
-    ++it;
-    lista11.insertarDespues(it, c2);
-    ++it;
-    lista11.insertarDespues(it, c3);
+    ListaCadenasADN lista11 = test.makeLista({c1, c2, c3});
 
-    IteradorLista it11 = it;
     /* Haz que el iterador it11 apunte al último elemento de la lista (AGTCAA) */
-    ++it11;
+    IteradorLista it11 = lista11.end();
+    it11.rstep();
 
     /* Llama a insertarDespues para insertar después de la posición
     apuntada por it11 la cadena c4 */
