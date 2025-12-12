@@ -554,8 +554,9 @@ bool CadenaADN::are_complementary_nucleotides(char a, char b)
 std::vector<std::string> CadenaADN::exposeCodones() const
 {
     std::vector<std::string> codonesVector;
+    codonesVector.reserve(getLongitud() / 3);
 
-    for (int i = 0; i <= getLongitud(); i += 3)
+    for (int i = 0; i < getLongitud(); i += 3)
     {
         std::string cur_codon = sequence.substr(i, 3);
 
