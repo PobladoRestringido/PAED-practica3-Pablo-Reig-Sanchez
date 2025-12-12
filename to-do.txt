@@ -6,6 +6,7 @@
 
 - test cuentaCodones y cadenas*
     -test cuentaCodones*
+
     -test cuentaCadenas
 
 - test eliminaDuplicados

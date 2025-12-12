@@ -367,15 +367,10 @@ int main()
     Borra las cadenas cc3 y cc7, de manera que la lista resultante sea:
     [ATG, GATATCATC, GCATCG, CCTAGAATC, GCATCG]
     */
-    auto it12 = lista12.begin();
-    ++it12; // position 1
-    ++it12; // position 2
-    ++it12; // position 3
-    auto delete_it = it12;
-    lista12.borrar(delete_it);
-    it12 = lista12.end();
-    it12.rstep();
-    lista12.borrar(it12);
+    auto itcc3 = test.nth(lista12, 2);
+    auto itcc7 = test.nth(lista12, 6);
+    lista12.borrar(itcc3);
+    lista12.borrar(itcc7);
 
     test.expectEqualVec(
         obtenerSecuencias(lista12),
