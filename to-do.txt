@@ -1,7 +1,16 @@
 - Recicle tests from 2nd practice to test 3rd practice
 
-- test insertarDespues
-    - insertar posicion final*
+-Apuntarme mirar si mi código cpp compila y pasa pruebas en ordenadores UA
+
+-Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
+
+- test cuentaCodones y cadenas*
+    -test cuentaCodones*
+    -test cuentaCadenas
+
+- test eliminaDuplicados
+
+- check whether I'm missing any new methods that I'm not testing
 
 make operator++ private
 

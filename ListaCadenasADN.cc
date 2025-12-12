@@ -247,9 +247,24 @@ string ListaCadenasADN::aCadena()
 }
 
 // NUEVO: Devuelve la frecuencia del codón pasado como parámetro
-int ListaCadenasADN::frecuenciaCodon(const string &)
+int ListaCadenasADN::frecuenciaCodon(const string &codon)
 {
-    return 0;
+    int count = 0;
+
+    for (const auto &cur_cadena : *this)
+    {
+        std::string cur_sequence = cur_cadena.getSecuencia();
+
+        for (int i = 0; i <= cur_sequence.size(); i += 3)
+        {
+            std::string cur_codon = cur_sequence.substr(i, 3);
+
+            if (cur_codon == codon)
+                count += 1;
+        }
+    }
+
+    return count;
 }
 
 // NUevo: Devuelve la frecuencia de la cadena de ADN pasada como parémtro

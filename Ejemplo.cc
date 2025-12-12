@@ -92,6 +92,17 @@ public:
         }
         return l;
     }
+
+    // Returns iterator to n-th element in list, or end() if beyond range
+    IteradorLista nth(ListaCadenasADN &lista, int pos)
+    {
+        IteradorLista it = lista.begin();
+        for (int i = 0; i < pos && it != lista.end(); ++i)
+        {
+            it.step();
+        }
+        return it;
+    }
 };
 
 /* ========= Funciones auxiliares ========= */
@@ -337,6 +348,60 @@ int main()
         obtenerSecuenciasInversa(lista11),
         {"GATGAT", "AGTCAA", "GATATC", "ATG"},
         "Inserción intermedia (después) correcta (orden inverso)");
+
+    // --- Cuentas de codones y cadenas ---
+    CadenaADN cc1("ATG", "Cadena 1");
+    CadenaADN cc2("GATATCATC", "Cadena 2");
+    CadenaADN cc3("GCATCG", "Borrar 1");
+    CadenaADN cc4("GCATCG", "Cadena 3");
+    CadenaADN cc5("CCTAGAATC", "Cadena 4");
+    CadenaADN cc6("GCATCG", "Otra cadena");
+    CadenaADN cc7("CCCATC", "Borrar 2");
+
+    /* Inserta en la lista11 las cadenas cc1, ...,cc6
+    de manera que la lista resultante sea:
+    [ATG, GATATCATC, GCATCG, GCATCG, CCTAGAATC, GCATCG, CCCATC] */
+    ListaCadenasADN lista12 = test.makeLista({cc1, cc2, cc3, cc4, cc5, cc6, cc7});
+
+    /*
+    Borra las cadenas cc3 y cc7, de manera que la lista resultante sea:
+    [ATG, GATATCATC, GCATCG, CCTAGAATC, GCATCG]
+    */
+    auto it12 = lista12.begin();
+    ++it12; // position 1
+    ++it12; // position 2
+    ++it12; // position 3
+    auto delete_it = it12;
+    lista12.borrar(delete_it);
+    it12 = lista12.end();
+    it12.rstep();
+    lista12.borrar(it12);
+
+    test.expectEqualVec(
+        obtenerSecuencias(lista12),
+        {"ATG", "GATATCATC", "GCATCG", "CCTAGAATC", "GCATCG"},
+        "Inserción y borrado pre probar cuentas correcta");
+    test.expectEqualVec(
+        obtenerSecuenciasInversa(lista12),
+        {"GCATCG", "CCTAGAATC", "GCATCG", "GATATCATC", "ATG"},
+        "Inserción y borrado pre probar cuentas (orden inverso)");
+
+    test.expectEqual(lista12.frecuenciaCodon("ATC"), 3, "frecuenciaCodon");
+    /*test.expectEqual(lista12.frecuenciaCadena(cc3), 2, "frecuenciaCadena");
+
+    test.expectEqual(
+        lista12.listaCodones(),
+        string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
+        "listaCodones");
+    test.expectEqual(
+        lista12.listaCadenasADN(),
+        string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
+        "listaCadenasADN");
+
+    test.expectEqual(
+        lista12.listaCadenasConCodon("ATC"),
+        string("CCTAGAATC\nGATATCATC"),
+        "listaCadenasConCodon");*/
 
     // --- Resultado global ---
     test.summary();
