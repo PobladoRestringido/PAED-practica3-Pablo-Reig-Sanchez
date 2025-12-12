@@ -255,7 +255,7 @@ int ListaCadenasADN::frecuenciaCodon(const string &codon)
     {
         std::string cur_sequence = cur_cadena.getSecuencia();
 
-        for (int i = 0; i <= cur_sequence.size(); i += 3)
+        for (int i = 0; i <= (int)(cur_sequence.size()); i += 3)
         {
             std::string cur_codon = cur_sequence.substr(i, 3);
 
