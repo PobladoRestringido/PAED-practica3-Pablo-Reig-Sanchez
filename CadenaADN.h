@@ -71,6 +71,9 @@ public:
     static bool is_valid_sequence(const std::string &);
     static bool is_valid_description(const std::string &);
     static bool are_complementary_nucleotides(char a, char b);
+
+    // Returns a vector with all the codones in the current object
+    std::vector<std::string> exposeCodones() const;
 };
 
 #endif

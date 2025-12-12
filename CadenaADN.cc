@@ -551,6 +551,20 @@ bool CadenaADN::are_complementary_nucleotides(char a, char b)
     }
 }
 
+std::vector<std::string> CadenaADN::exposeCodones() const
+{
+    std::vector<std::string> codonesVector;
+
+    for (int i = 0; i <= getLongitud(); i += 3)
+    {
+        std::string cur_codon = sequence.substr(i, 3);
+
+        codonesVector.push_back(cur_codon);
+    }
+
+    return codonesVector;
+}
+
 /*bool CadenaADN::is_valid_description(const std::string &description)
 {
 

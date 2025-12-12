@@ -253,12 +253,10 @@ int ListaCadenasADN::frecuenciaCodon(const string &codon)
 
     for (const auto &cur_cadena : *this)
     {
-        std::string cur_sequence = cur_cadena.getSecuencia();
+        std::vector<std::string> codonesCurCadena = cur_cadena.exposeCodones();
 
-        for (int i = 0; i <= (int)(cur_sequence.size()); i += 3)
+        for (const auto &cur_codon : codonesCurCadena)
         {
-            std::string cur_codon = cur_sequence.substr(i, 3);
-
             if (cur_codon == codon)
                 count += 1;
         }
