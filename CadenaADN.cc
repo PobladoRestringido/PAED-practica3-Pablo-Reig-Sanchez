@@ -332,7 +332,16 @@ int CadenaADN::contarCodon(const string &codon) const
     if (codon.length() != 3)
         return 0;
 
-    return utils::count_substring(this->sequence, codon);
+    int count = 0;
+
+    std::vector<std::string> codones = exposeCodones();
+
+    for (const auto &cur_codon : codones)
+    {
+        if (cur_codon == codon)
+            count += 1;
+    }
+    return count;
 }
 
 // Búsqueda de subsecuencias
