@@ -358,9 +358,20 @@ string ListaCadenasADN::listaCadenasADN()
 }
 
 // NUEVO:Lista las cadenas que contienen un codón determinado, sin repetidos
-string ListaCadenasADN::listaCadenasConCodon(const string &)
+string ListaCadenasADN::listaCadenasConCodon(const string &targetCodon)
 {
-    return "";
+    std::string returnString;
+    for (const auto &curPair : orderedCadenasMap)
+    {
+        CadenaADN curCadena = curPair.first;
+        if (curCadena.contarCodon(targetCodon) >= 1)
+        {
+            returnString += curCadena.getSecuencia();
+            returnString += "\n";
+        }
+    }
+
+    return returnString.substr(0, returnString.length() - 1);
 }
 
 // NUEVO:elimina las cadenas de ADN con la misma secuencia, dejando sólo la primera que aparezca en la lista
@@ -368,8 +379,12 @@ void ListaCadenasADN::eliminaDuplicados()
 {
 }
 
+/*
+Dumps map keys to a string, separated by newlines.
+
+Last key isn't newline-terminated.
+*/
 template <typename MapType, typename KeyToString>
-// dumps map keys to a string
 std::string dumpMapContentsToString(const MapType &m, KeyToString keyToString)
 {
     std::string result;

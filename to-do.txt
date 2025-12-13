@@ -4,9 +4,7 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- test listaCadenasADN*
-    - test to make sure it's efficient/can be refactored
-- test listaCadenasConCodon
+- test listaCadenasConCodon*
 
 - test eliminaDuplicados
 

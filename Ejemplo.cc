@@ -393,11 +393,11 @@ int main()
         lista12.listaCadenasADN(),
         string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
         "listaCadenasADN");
-    /*
+
     test.expectEqual(
         lista12.listaCadenasConCodon("ATC"),
         string("CCTAGAATC\nGATATCATC"),
-        "listaCadenasConCodon");*/
+        "listaCadenasConCodon");
 
     // --- Resultado global ---
     test.summary();
