@@ -37,6 +37,7 @@ private:
    std::map<std::string, int> orderedCodonesMap;
 
    void insertCodonesToMap(const CadenaADN &new_cadena);
+   void removeCodonesFromMap(const CadenaADN &removed_cadena);
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista
