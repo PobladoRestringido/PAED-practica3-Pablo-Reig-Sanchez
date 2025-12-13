@@ -260,9 +260,17 @@ int ListaCadenasADN::frecuenciaCodon(const string &codon)
 }
 
 // NUevo: Devuelve la frecuencia de la cadena de ADN pasada como parémtro
-int ListaCadenasADN::frecuenciaCadena(const CadenaADN &)
+int ListaCadenasADN::frecuenciaCadena(const CadenaADN &cadena)
 {
-    return 0;
+    int count = 0;
+
+    for (const auto &cur_cadena : *this)
+    {
+        if (cur_cadena == cadena)
+            ++count;
+    }
+
+    return count;
 }
 
 // NUEVO:Lista los codones en orden alfabético

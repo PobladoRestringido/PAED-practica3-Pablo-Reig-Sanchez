@@ -13,7 +13,6 @@
 
 - check whether I'm missing any new methods that I'm not testing
 
-make operator++ private*
 
 - improve testability by making my objects printable/ implementing operator<<
 
