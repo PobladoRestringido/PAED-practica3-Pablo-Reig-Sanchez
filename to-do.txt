@@ -4,12 +4,12 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- test listaCodones*
-    - refactor to remove redundancy in borrar methods*
-- test listaCadenasADN
+- test listaCadenasADN*
 - test listaCadenasConCodon
 
 - test eliminaDuplicados
+
+- HACER PRUEBAS VELOCIDAD
 
 - make sure all public interfaces are exactly as defined in problem statements
 
@@ -29,4 +29,3 @@
 - Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
 pasan
 
-- HACER PRUEBAS VELOCIDAD

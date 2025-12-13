@@ -198,6 +198,11 @@ CadenaADN &CadenaADN::operator=(const CadenaADN &other)
     return *this;
 }
 
+bool CadenaADN::operator<(const CadenaADN &otherCadena) const
+{
+    return this->sequence < otherCadena.getSecuencia();
+}
+
 // Operadores de comparación
 bool CadenaADN::operator==(const CadenaADN &other) const
 {

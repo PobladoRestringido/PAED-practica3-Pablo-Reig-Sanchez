@@ -388,12 +388,12 @@ int main()
         lista12.listaCodones(),
         string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
         "listaCodones");
-    /*
+
     test.expectEqual(
         lista12.listaCadenasADN(),
         string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
         "listaCadenasADN");
-
+    /*
     test.expectEqual(
         lista12.listaCadenasConCodon("ATC"),
         string("CCTAGAATC\nGATATCATC"),

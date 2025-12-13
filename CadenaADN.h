@@ -28,6 +28,8 @@ public:
     bool operator==(const CadenaADN &) const;
     bool operator!=(const CadenaADN &) const;
 
+    bool operator<(const CadenaADN &) const;
+
     // Getters y setters
     string getSecuencia() const;
     string getDescripcion() const;

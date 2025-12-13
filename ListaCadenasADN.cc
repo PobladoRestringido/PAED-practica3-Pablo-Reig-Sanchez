@@ -103,11 +103,18 @@ void ListaCadenasADN::insertCodonesToMap(const CadenaADN &new_cadena)
     }
 }
 
+void ListaCadenasADN::insertCadenaToMap(const CadenaADN &new_cadena)
+{
+
+    orderedCadenasMap[new_cadena] += 1;
+}
+
 // Inserta una cadena de ADN al principio de la lista
 void ListaCadenasADN::insertarInicio(const CadenaADN &cadena)
 {
     data.push_front(cadena);
     insertCodonesToMap(cadena);
+    insertCadenaToMap(cadena);
 }
 
 // Inserta una cadena de ADN al final de la lista
@@ -115,6 +122,7 @@ void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 {
     data.push_back(cadena);
     insertCodonesToMap(cadena);
+    insertCadenaToMap(cadena);
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
@@ -125,6 +133,7 @@ bool ListaCadenasADN::insertar(IteradorLista it, const CadenaADN &cadena)
 
     data.insert(it.iter, cadena);
     insertCodonesToMap(cadena);
+    insertCadenaToMap(cadena);
 
     return true;
 }
@@ -166,6 +175,15 @@ void ListaCadenasADN::removeCodonesFromMap(const CadenaADN &deletedCadena)
     }
 }
 
+void ListaCadenasADN::removeCadenaFromMap(const CadenaADN &deletedCadena)
+{
+
+    orderedCadenasMap[deletedCadena] -= 1;
+
+    if (orderedCadenasMap[deletedCadena] == 0)
+        orderedCadenasMap.erase(deletedCadena);
+}
+
 // Borra la primera cadena de ADN de la lista
 bool ListaCadenasADN::borrarPrimera()
 {
@@ -174,6 +192,7 @@ bool ListaCadenasADN::borrarPrimera()
 
     CadenaADN deletedCadena = data.front();
     removeCodonesFromMap(deletedCadena);
+    removeCadenaFromMap(deletedCadena);
 
     data.pop_front();
     return true;
@@ -187,6 +206,7 @@ bool ListaCadenasADN::borrarUltima()
 
     CadenaADN deletedCadena = data.back();
     removeCodonesFromMap(deletedCadena);
+    removeCadenaFromMap(deletedCadena);
 
     data.pop_back();
     return true;
@@ -200,6 +220,7 @@ bool ListaCadenasADN::borrar(IteradorLista &it)
 
     CadenaADN deletedCadena = getCadenaADN(it);
     removeCodonesFromMap(deletedCadena);
+    removeCadenaFromMap(deletedCadena);
 
     data.erase(it.iter);
     it = IteradorLista();
@@ -313,7 +334,6 @@ string ListaCadenasADN::listaCodones()
 {
 
     std::string returnString;
-    // next we build the return string
     auto it = orderedCodonesMap.begin();
     while (it != orderedCodonesMap.end())
     {
@@ -328,10 +348,22 @@ string ListaCadenasADN::listaCodones()
     return returnString;
 }
 
-// NUEVO:Lista las cadenas en orden alfabétic
+// NUEVO:Lista las cadenas en orden alfabético
 string ListaCadenasADN::listaCadenasADN()
 {
-    return "";
+    std::string returnString;
+    auto it = orderedCadenasMap.begin();
+    while (it != orderedCadenasMap.end())
+    {
+        CadenaADN curCadena = it->first;
+        returnString += curCadena.getSecuencia();
+
+        ++it;
+        if (it != orderedCadenasMap.end())
+            returnString += "\n";
+    }
+
+    return returnString;
 }
 
 // NUEVO:Lista las cadenas que contienen un codón determinado, sin repetidos
