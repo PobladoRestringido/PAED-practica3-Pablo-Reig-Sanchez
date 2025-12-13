@@ -342,19 +342,10 @@ std::string dumpMapContentsToString(const MapType &m, KeyToString keyToString);
 string ListaCadenasADN::listaCodones()
 {
 
-    std::string returnString;
-    auto it = orderedCodonesMap.begin();
-    while (it != orderedCodonesMap.end())
-    {
-        std::string cur_codon = it->first;
-        returnString += cur_codon;
-
-        ++it;
-        if (it != orderedCodonesMap.end())
-            returnString += "\n";
-    }
-
-    return returnString;
+    return dumpMapContentsToString(
+        orderedCodonesMap,
+        [](const std::string &codon)
+        { return codon; });
 }
 
 // NUEVO:Lista las cadenas en orden alfabético
