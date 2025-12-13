@@ -36,11 +36,12 @@ private:
    list<CadenaADN> data;
    std::map<std::string, int> orderedCodonesMap;
    std::map<CadenaADN, int> orderedCadenasMap;
+   void insertInMaps(const CadenaADN &new_cadena);
 
-   void insertCodonesToMap(const CadenaADN &new_cadena);
+   void insertCodonesInMap(const CadenaADN &new_cadena);
    void removeCodonesFromMap(const CadenaADN &removed_cadena);
 
-   void insertCadenaToMap(const CadenaADN &new_cadena);
+   void insertCadenaInMap(const CadenaADN &new_cadena);
    void removeCadenaFromMap(const CadenaADN &removed_cadena);
 
 public:

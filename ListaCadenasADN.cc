@@ -95,7 +95,13 @@ bool ListaCadenasADN::esVacia()
     return data.empty();
 }
 
-void ListaCadenasADN::insertCodonesToMap(const CadenaADN &new_cadena)
+void ListaCadenasADN::insertInMaps(const CadenaADN &new_cadena)
+{
+    insertCodonesInMap(new_cadena);
+    insertCadenaInMap(new_cadena);
+}
+
+void ListaCadenasADN::insertCodonesInMap(const CadenaADN &new_cadena)
 {
     for (const auto &cur_codon : new_cadena.exposeCodones())
     {
@@ -103,7 +109,7 @@ void ListaCadenasADN::insertCodonesToMap(const CadenaADN &new_cadena)
     }
 }
 
-void ListaCadenasADN::insertCadenaToMap(const CadenaADN &new_cadena)
+void ListaCadenasADN::insertCadenaInMap(const CadenaADN &new_cadena)
 {
 
     orderedCadenasMap[new_cadena] += 1;
@@ -113,16 +119,14 @@ void ListaCadenasADN::insertCadenaToMap(const CadenaADN &new_cadena)
 void ListaCadenasADN::insertarInicio(const CadenaADN &cadena)
 {
     data.push_front(cadena);
-    insertCodonesToMap(cadena);
-    insertCadenaToMap(cadena);
+    insertInMaps(cadena);
 }
 
 // Inserta una cadena de ADN al final de la lista
 void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 {
     data.push_back(cadena);
-    insertCodonesToMap(cadena);
-    insertCadenaToMap(cadena);
+    insertInMaps(cadena);
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
@@ -132,8 +136,7 @@ bool ListaCadenasADN::insertar(IteradorLista it, const CadenaADN &cadena)
         return false;
 
     data.insert(it.iter, cadena);
-    insertCodonesToMap(cadena);
-    insertCadenaToMap(cadena);
+    insertInMaps(cadena);
 
     return true;
 }
