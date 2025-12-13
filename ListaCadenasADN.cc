@@ -1,5 +1,7 @@
 #include "ListaCadenasADN.h"
 #include <sstream>
+#include <unordered_set>
+#include <set>
 
 // Avanza una posición en la lista
 void IteradorLista::step()
@@ -276,7 +278,26 @@ int ListaCadenasADN::frecuenciaCadena(const CadenaADN &cadena)
 // NUEVO:Lista los codones en orden alfabético
 string ListaCadenasADN::listaCodones()
 {
-    return "";
+    // first we build our set of ordered codones
+    std::set<std::string> codonesSet;
+
+    for (const auto &cur_cadena : *this)
+    {
+        for (const auto &cur_codon : cur_cadena.exposeCodones())
+        {
+            codonesSet.insert(cur_codon);
+        }
+    }
+
+    std::string returnString;
+    // next we build the return string
+    for (const auto &cur_codon : codonesSet)
+    {
+        returnString += cur_codon;
+        returnString += "\n";
+    }
+
+    return returnString.substr(0, returnString.length() - 1);
 }
 
 // NUEVO:Lista las cadenas en orden alfabétic

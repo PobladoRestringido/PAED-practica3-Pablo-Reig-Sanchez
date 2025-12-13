@@ -384,10 +384,11 @@ int main()
     test.expectEqual(lista12.frecuenciaCodon("ATC"), 3, "frecuenciaCodon");
     test.expectEqual(lista12.frecuenciaCadena(cc3), 2, "frecuenciaCadena");
 
-    /*test.expectEqual(
+    test.expectEqual(
         lista12.listaCodones(),
         string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
         "listaCodones");
+    /*
     test.expectEqual(
         lista12.listaCadenasADN(),
         string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
