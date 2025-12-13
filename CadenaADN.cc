@@ -318,16 +318,13 @@ double CadenaADN::proporcionGC() const
     return (double)(g_count + c_count) / this->sequence.length();
 }
 
-// Búsqueda de codones
-int CadenaADN::contarCodon(const string &codon) const
-{
-    /*
+/*
     Returns the number of times a certain codon appears in the sequence.
 
-    Notes
-    -----
-    If codon length isn't exactly 3, a count of 0 is always returned.
-    */
+    If `codon` length isn't exactly 3, a count of 0 is always returned.
+*/
+int CadenaADN::contarCodon(const string &codon) const
+{
 
     if (codon.length() != 3)
         return 0;

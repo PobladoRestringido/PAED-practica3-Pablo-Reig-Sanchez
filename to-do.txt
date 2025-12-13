@@ -4,16 +4,16 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- test cuentaCodones y cadenas*
-    -test cuentaCodones*
-
+- test cuentaCodones y cadenas
     -test cuentaCadenas
 
 - test eliminaDuplicados
 
+- make sure all public interfaces are exactly as defined in problem statements
+
 - check whether I'm missing any new methods that I'm not testing
 
-make operator++ private
+make operator++ private*
 
 - improve testability by making my objects printable/ implementing operator<<
 
