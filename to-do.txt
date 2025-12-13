@@ -4,8 +4,11 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- test cuentaCodones y cadenas
-    -test cuentaCadenas
+- test listaCodones*
+    - refactor to make more efficient*
+    - refactor to make it run in constant time
+- test listaCadenasADN
+- test listaCadenasConCodon
 
 - test eliminaDuplicados
 

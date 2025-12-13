@@ -291,13 +291,18 @@ string ListaCadenasADN::listaCodones()
 
     std::string returnString;
     // next we build the return string
-    for (const auto &cur_codon : codonesSet)
+    auto it = codonesSet.begin();
+    while (it != codonesSet.end())
     {
+        std::string cur_codon = *it;
         returnString += cur_codon;
-        returnString += "\n";
+
+        ++it;
+        if (it != codonesSet.end())
+            returnString += "\n";
     }
 
-    return returnString.substr(0, returnString.length() - 1);
+    return returnString;
 }
 
 // NUEVO:Lista las cadenas en orden alfabétic
