@@ -2,6 +2,7 @@
 #include <sstream>
 #include <unordered_set>
 #include <set>
+#include <map>
 
 // Avanza una posición en la lista
 void IteradorLista::step()
@@ -98,12 +99,22 @@ bool ListaCadenasADN::esVacia()
 void ListaCadenasADN::insertarInicio(const CadenaADN &cadena)
 {
     data.push_front(cadena);
+
+    for (const auto &cur_codon : cadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] += 1;
+    }
 }
 
 // Inserta una cadena de ADN al final de la lista
 void ListaCadenasADN::insertarFinal(const CadenaADN &cadena)
 {
     data.push_back(cadena);
+
+    for (const auto &cur_codon : cadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] += 1;
+    }
 }
 
 // Inserta una cadena de ADN justo antes de la posición apuntada por el iterador
@@ -113,6 +124,11 @@ bool ListaCadenasADN::insertar(IteradorLista it, const CadenaADN &cadena)
         return false;
 
     data.insert(it.iter, cadena);
+
+    for (const auto &cur_codon : cadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] += 1;
+    }
     return true;
 }
 
@@ -148,6 +164,15 @@ bool ListaCadenasADN::borrarPrimera()
     if (esVacia())
         return false;
 
+    CadenaADN deletedCadena = data.front();
+    for (const auto &cur_codon : deletedCadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] -= 1;
+
+        if (orderedCodonesMap[cur_codon] == 0)
+            orderedCodonesMap.erase(cur_codon);
+    }
+
     data.pop_front();
     return true;
 }
@@ -158,6 +183,15 @@ bool ListaCadenasADN::borrarUltima()
     if (esVacia())
         return false;
 
+    CadenaADN deletedCadena = data.back();
+    for (const auto &cur_codon : deletedCadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] -= 1;
+
+        if (orderedCodonesMap[cur_codon] == 0)
+            orderedCodonesMap.erase(cur_codon);
+    }
+
     data.pop_back();
     return true;
 }
@@ -167,6 +201,15 @@ bool ListaCadenasADN::borrar(IteradorLista &it)
 {
     if (it.esVacio())
         return false;
+
+    CadenaADN deletedCadena = getCadenaADN(it);
+    for (const auto &cur_codon : deletedCadena.exposeCodones())
+    {
+        orderedCodonesMap[cur_codon] -= 1;
+
+        if (orderedCodonesMap[cur_codon] == 0)
+            orderedCodonesMap.erase(cur_codon);
+    }
 
     data.erase(it.iter);
     it = IteradorLista();
@@ -278,27 +321,17 @@ int ListaCadenasADN::frecuenciaCadena(const CadenaADN &cadena)
 // NUEVO:Lista los codones en orden alfabético
 string ListaCadenasADN::listaCodones()
 {
-    // first we build our set of ordered codones
-    std::set<std::string> codonesSet;
-
-    for (const auto &cur_cadena : *this)
-    {
-        for (const auto &cur_codon : cur_cadena.exposeCodones())
-        {
-            codonesSet.insert(cur_codon);
-        }
-    }
 
     std::string returnString;
     // next we build the return string
-    auto it = codonesSet.begin();
-    while (it != codonesSet.end())
+    auto it = orderedCodonesMap.begin();
+    while (it != orderedCodonesMap.end())
     {
-        std::string cur_codon = *it;
+        std::string cur_codon = it->first;
         returnString += cur_codon;
 
         ++it;
-        if (it != codonesSet.end())
+        if (it != orderedCodonesMap.end())
             returnString += "\n";
     }
 

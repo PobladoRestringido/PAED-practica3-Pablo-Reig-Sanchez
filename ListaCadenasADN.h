@@ -1,6 +1,8 @@
 #pragma once
 #include "CadenaADN.h"
 #include <list>
+#include <set>
+#include <map>
 using namespace std;
 
 class ListaCadenasADN;
@@ -32,6 +34,7 @@ class ListaCadenasADN
 {
 private:
    list<CadenaADN> data;
+   std::map<std::string, int> orderedCodonesMap;
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista
