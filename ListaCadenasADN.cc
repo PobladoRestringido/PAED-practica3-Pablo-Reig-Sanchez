@@ -335,6 +335,9 @@ int ListaCadenasADN::frecuenciaCadena(const CadenaADN &cadena)
     return count;
 }
 
+template <typename MapType, typename KeyToString>
+std::string dumpMapContentsToString(const MapType &m, KeyToString keyToString);
+
 // NUEVO:Lista los codones en orden alfabético
 string ListaCadenasADN::listaCodones()
 {
@@ -357,19 +360,10 @@ string ListaCadenasADN::listaCodones()
 // NUEVO:Lista las cadenas en orden alfabético
 string ListaCadenasADN::listaCadenasADN()
 {
-    std::string returnString;
-    auto it = orderedCadenasMap.begin();
-    while (it != orderedCadenasMap.end())
-    {
-        CadenaADN curCadena = it->first;
-        returnString += curCadena.getSecuencia();
-
-        ++it;
-        if (it != orderedCadenasMap.end())
-            returnString += "\n";
-    }
-
-    return returnString;
+    return dumpMapContentsToString(
+        orderedCadenasMap,
+        [](const CadenaADN &cadena)
+        { return cadena.getSecuencia(); });
 }
 
 // NUEVO:Lista las cadenas que contienen un codón determinado, sin repetidos
@@ -381,4 +375,20 @@ string ListaCadenasADN::listaCadenasConCodon(const string &)
 // NUEVO:elimina las cadenas de ADN con la misma secuencia, dejando sólo la primera que aparezca en la lista
 void ListaCadenasADN::eliminaDuplicados()
 {
+}
+
+template <typename MapType, typename KeyToString>
+// dumps map keys to a string
+std::string dumpMapContentsToString(const MapType &m, KeyToString keyToString)
+{
+    std::string result;
+    auto it = m.begin();
+    while (it != m.end())
+    {
+        result += keyToString(it->first);
+        ++it;
+        if (it != m.end())
+            result += "\n";
+    }
+    return result;
 }
