@@ -36,13 +36,14 @@ private:
    list<CadenaADN> data;
    std::map<std::string, int> orderedCodonesMap;
    std::map<CadenaADN, int> orderedCadenasMap;
-   void insertInMaps(const CadenaADN &new_cadena);
+   void insertInMaps(const CadenaADN &);
+   void removeFromMaps(const CadenaADN &);
 
-   void insertCodonesInMap(const CadenaADN &new_cadena);
-   void removeCodonesFromMap(const CadenaADN &removed_cadena);
+   void insertCodonesInMap(const CadenaADN &);
+   void removeCodonesFromMap(const CadenaADN &);
 
-   void insertCadenaInMap(const CadenaADN &new_cadena);
-   void removeCadenaFromMap(const CadenaADN &removed_cadena);
+   void insertCadenaInMap(const CadenaADN &);
+   void removeCadenaFromMap(const CadenaADN &);
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista

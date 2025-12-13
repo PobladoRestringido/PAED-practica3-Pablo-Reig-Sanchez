@@ -6,7 +6,7 @@
 
 - test listaCadenasADN*
     - test to make sure it's efficient/can be refactored
-    - make private methods for inserting codones/cadena merge into how single method*
+    - make private methods for deleting codones/cadena merge into one single method*
 - test listaCadenasConCodon
 
 - test eliminaDuplicados
