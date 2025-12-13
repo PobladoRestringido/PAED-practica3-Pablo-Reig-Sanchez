@@ -167,6 +167,12 @@ bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
     return true;
 }
 
+void ListaCadenasADN::removeFromMaps(const CadenaADN &deletedCadena)
+{
+    removeCodonesFromMap(deletedCadena);
+    removeCadenaFromMap(deletedCadena);
+}
+
 void ListaCadenasADN::removeCodonesFromMap(const CadenaADN &deletedCadena)
 {
     for (const auto &cur_codon : deletedCadena.exposeCodones())
@@ -194,8 +200,7 @@ bool ListaCadenasADN::borrarPrimera()
         return false;
 
     CadenaADN deletedCadena = data.front();
-    removeCodonesFromMap(deletedCadena);
-    removeCadenaFromMap(deletedCadena);
+    removeFromMaps(deletedCadena);
 
     data.pop_front();
     return true;
@@ -208,8 +213,7 @@ bool ListaCadenasADN::borrarUltima()
         return false;
 
     CadenaADN deletedCadena = data.back();
-    removeCodonesFromMap(deletedCadena);
-    removeCadenaFromMap(deletedCadena);
+    removeFromMaps(deletedCadena);
 
     data.pop_back();
     return true;
@@ -222,8 +226,7 @@ bool ListaCadenasADN::borrar(IteradorLista &it)
         return false;
 
     CadenaADN deletedCadena = getCadenaADN(it);
-    removeCodonesFromMap(deletedCadena);
-    removeCadenaFromMap(deletedCadena);
+    removeFromMaps(deletedCadena);
 
     data.erase(it.iter);
     it = IteradorLista();
