@@ -5,8 +5,8 @@
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
 - test listaCodones*
-    - refactor to make more efficient*
-    - refactor to make it run in constant time
+    - refactor to remove redundancy in inserting methods*
+    - refactor to remove redundancy in borrar methods
 - test listaCadenasADN
 - test listaCadenasConCodon
 
