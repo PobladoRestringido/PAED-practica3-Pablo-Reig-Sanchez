@@ -303,7 +303,7 @@ int main()
 
     /* Haz que el iterador it10 apunte al segundo elemento de la lista (GATATC) */
     IteradorLista it10 = lista10.begin();
-    ++it10;
+    it10.step();
 
     /* Llama a insertarDespues para insertar después de la posición
     apuntada por it10 la cadena c4 */

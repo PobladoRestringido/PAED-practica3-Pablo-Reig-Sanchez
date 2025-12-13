@@ -11,6 +11,7 @@ class IteradorLista
 
 private:
    list<CadenaADN>::iterator iter;
+   void operator++();
 
 public:
    // Avanza una posición en la lista
@@ -23,8 +24,6 @@ public:
    bool operator!=(const IteradorLista &) const;
 
    CadenaADN &operator*() const;
-
-   void operator++();
 
    // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
    bool esVacio() const;
