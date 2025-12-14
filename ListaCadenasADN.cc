@@ -394,6 +394,18 @@ string ListaCadenasADN::listaCadenasConCodon(const string &targetCodon)
 // NUEVO:elimina las cadenas de ADN con la misma secuencia, dejando sólo la primera que aparezca en la lista
 void ListaCadenasADN::eliminaDuplicados()
 {
+    auto it = rbegin();
+
+    while (it != rend())
+    {
+        CadenaADN curCadena = *it;
+        auto copyIt = it;
+        it.rstep();
+        if (cadenaToFrequency[curCadena] > 1)
+        {
+            borrar(copyIt);
+        }
+    }
 }
 
 /*

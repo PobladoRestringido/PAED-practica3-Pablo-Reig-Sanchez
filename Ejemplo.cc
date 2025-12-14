@@ -399,6 +399,17 @@ int main()
         string("CCTAGAATC\nGATATCATC"),
         "listaCadenasConCodon");
 
+    // --- eliminaDuplicados ---
+    lista12.eliminaDuplicados();
+    test.expectEqualVec(
+        obtenerSecuencias(lista12),
+        {"ATG", "GATATCATC", "GCATCG", "CCTAGAATC"},
+        "eliminaDuplicados");
+    test.expectEqualVec(
+        obtenerSecuenciasInversa(lista12),
+        {"CCTAGAATC", "GCATCG", "GATATCATC", "ATG"},
+        "eliminaDuplicados (orden inverso)");
+
     // --- Resultado global ---
     test.summary();
     return 0;
