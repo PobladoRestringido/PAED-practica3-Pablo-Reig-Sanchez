@@ -36,8 +36,9 @@ class ListaCadenasADN
 {
 private:
    list<CadenaADN> data;
-   std::map<std::string, int> orderedCodonesMap;
-   std::map<CadenaADN, int> orderedCadenasMap;
+
+   std::map<std::string, int> codonToFrequency;
+   std::map<CadenaADN, int> cadenaToFrequency;
    std::unordered_map<std::string, std::map<CadenaADN, int>> cadenasConCodonMap;
    void insertInMaps(const CadenaADN &);
    void removeFromMaps(const CadenaADN &);
@@ -48,7 +49,7 @@ private:
 
    void insertCadenaInMap(const CadenaADN &);
    void removeCadenaFromMap(const CadenaADN &);
-   void removeFromCadenaConCodonMap(const CadenaADN &deletedCadena);
+   void removeFromCadenaConCodonMap(const CadenaADN &);
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista

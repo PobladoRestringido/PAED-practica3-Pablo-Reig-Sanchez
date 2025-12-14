@@ -106,14 +106,14 @@ void ListaCadenasADN::insertCodonesInMap(const CadenaADN &new_cadena)
 {
     for (const auto &cur_codon : new_cadena.exposeCodones())
     {
-        orderedCodonesMap[cur_codon] += 1;
+        codonToFrequency[cur_codon] += 1;
     }
 }
 
 void ListaCadenasADN::insertCadenaInMap(const CadenaADN &new_cadena)
 {
 
-    orderedCadenasMap[new_cadena] += 1;
+    cadenaToFrequency[new_cadena] += 1;
 }
 
 void ListaCadenasADN::insertCadenaConCodonMap(const CadenaADN &newCadena)
@@ -187,20 +187,20 @@ void ListaCadenasADN::removeCodonesFromMap(const CadenaADN &deletedCadena)
 {
     for (const auto &cur_codon : deletedCadena.exposeCodones())
     {
-        orderedCodonesMap[cur_codon] -= 1;
+        codonToFrequency[cur_codon] -= 1;
 
-        if (orderedCodonesMap[cur_codon] == 0)
-            orderedCodonesMap.erase(cur_codon);
+        if (codonToFrequency[cur_codon] == 0)
+            codonToFrequency.erase(cur_codon);
     }
 }
 
 void ListaCadenasADN::removeCadenaFromMap(const CadenaADN &deletedCadena)
 {
 
-    orderedCadenasMap[deletedCadena] -= 1;
+    cadenaToFrequency[deletedCadena] -= 1;
 
-    if (orderedCadenasMap[deletedCadena] == 0)
-        orderedCadenasMap.erase(deletedCadena);
+    if (cadenaToFrequency[deletedCadena] == 0)
+        cadenaToFrequency.erase(deletedCadena);
 }
 
 void ListaCadenasADN::removeFromCadenaConCodonMap(const CadenaADN &deletedCadena)
@@ -364,7 +364,7 @@ string ListaCadenasADN::listaCodones()
 {
 
     return dumpMapContentsToString(
-        orderedCodonesMap,
+        codonToFrequency,
         [](const std::string &codon)
         { return codon; });
 }
@@ -373,7 +373,7 @@ string ListaCadenasADN::listaCodones()
 string ListaCadenasADN::listaCadenasADN()
 {
     return dumpMapContentsToString(
-        orderedCadenasMap,
+        cadenaToFrequency,
         [](const CadenaADN &cadena)
         { return cadena.getSecuencia(); });
 }
