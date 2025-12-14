@@ -338,28 +338,19 @@ string ListaCadenasADN::aCadena()
 // NUEVO: Devuelve la frecuencia del codón pasado como parámetro
 int ListaCadenasADN::frecuenciaCodon(const string &codon)
 {
-    int count = 0;
+    if (codonToFrequency.count(codon) > 0)
+        return codonToFrequency[codon];
 
-    for (const auto &cur_cadena : *this)
-    {
-        count += cur_cadena.contarCodon(codon);
-    }
-
-    return count;
+    return 0;
 }
 
 // NUevo: Devuelve la frecuencia de la cadena de ADN pasada como parémtro
 int ListaCadenasADN::frecuenciaCadena(const CadenaADN &cadena)
 {
-    int count = 0;
+    if (cadenaToFrequency.count(cadena) > 0)
+        return cadenaToFrequency[cadena];
 
-    for (const auto &cur_cadena : *this)
-    {
-        if (cur_cadena == cadena)
-            ++count;
-    }
-
-    return count;
+    return 0;
 }
 
 template <typename MapType, typename KeyToString>

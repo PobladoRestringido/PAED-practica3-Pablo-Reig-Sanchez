@@ -4,13 +4,9 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- make contar more efficient by leveraging tests*
-
-- make diferencia more efficient by using sets*
+- HACER PRUEBAS VELOCIDAD*
 
 -Make sure copied objects in PAED practice do pass tests for frecuencia and listaCodones/ listaCadenas methods
-
-- HACER PRUEBAS VELOCIDAD
 
 - make sure all public interfaces are exactly as defined in problem statements
 
