@@ -274,14 +274,10 @@ int ListaCadenasADN::longitud()
 //(según su operador ==)
 int ListaCadenasADN::contar(const CadenaADN &cadena)
 {
-    int count = 0;
-    for (const auto &cur_cadena : *this)
-    {
-        if (cur_cadena == cadena)
-            ++count;
-    }
+    if (cadenaToFrequency.count(cadena) > 0)
+        return cadenaToFrequency[cadena];
 
-    return count;
+    return 0;
 }
 
 // Devuelve una nueva lista con todos los elementos de la lista actual y,

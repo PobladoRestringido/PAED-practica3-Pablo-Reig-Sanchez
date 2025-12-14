@@ -4,7 +4,9 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- test eliminaDuplicados
+- make contar more efficient by leveraging tests*
+
+- make diferencia more efficient by using sets*
 
 -Make sure copied objects in PAED practice do pass tests for frecuencia and listaCodones/ listaCadenas methods
 
@@ -17,13 +19,7 @@
 
 - improve testability by making my objects printable/ implementing operator<<
 
-- remove duplication between rstep() and operator-- in IteradorLista
-
 - test past methods with empty iterator don't modify list
-
-- implement -- too
-
-- make diferencia more efficient by using sets
 
 - Volver a extraer únicamente el primer ejemplo.cc, para ver si los tests tal cual me
 pasan
