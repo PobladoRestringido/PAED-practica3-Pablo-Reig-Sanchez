@@ -3,6 +3,8 @@
 #include <list>
 #include <set>
 #include <map>
+#include <unordered_map>
+#include <string>
 using namespace std;
 
 class ListaCadenasADN;
@@ -36,14 +38,17 @@ private:
    list<CadenaADN> data;
    std::map<std::string, int> orderedCodonesMap;
    std::map<CadenaADN, int> orderedCadenasMap;
+   std::unordered_map<std::string, std::map<CadenaADN, int>> cadenasConCodonMap;
    void insertInMaps(const CadenaADN &);
    void removeFromMaps(const CadenaADN &);
 
    void insertCodonesInMap(const CadenaADN &);
    void removeCodonesFromMap(const CadenaADN &);
+   void insertCadenaConCodonMap(const CadenaADN &);
 
    void insertCadenaInMap(const CadenaADN &);
    void removeCadenaFromMap(const CadenaADN &);
+   void removeFromCadenaConCodonMap(const CadenaADN &deletedCadena);
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista

@@ -99,6 +99,7 @@ void ListaCadenasADN::insertInMaps(const CadenaADN &new_cadena)
 {
     insertCodonesInMap(new_cadena);
     insertCadenaInMap(new_cadena);
+    insertCadenaConCodonMap(new_cadena);
 }
 
 void ListaCadenasADN::insertCodonesInMap(const CadenaADN &new_cadena)
@@ -113,6 +114,14 @@ void ListaCadenasADN::insertCadenaInMap(const CadenaADN &new_cadena)
 {
 
     orderedCadenasMap[new_cadena] += 1;
+}
+
+void ListaCadenasADN::insertCadenaConCodonMap(const CadenaADN &newCadena)
+{
+    for (const auto &cur_codon : newCadena.exposeCodones())
+    {
+        cadenasConCodonMap[cur_codon][newCadena] += 1;
+    }
 }
 
 // Inserta una cadena de ADN al principio de la lista
@@ -171,6 +180,7 @@ void ListaCadenasADN::removeFromMaps(const CadenaADN &deletedCadena)
 {
     removeCodonesFromMap(deletedCadena);
     removeCadenaFromMap(deletedCadena);
+    removeFromCadenaConCodonMap(deletedCadena);
 }
 
 void ListaCadenasADN::removeCodonesFromMap(const CadenaADN &deletedCadena)
@@ -191,6 +201,17 @@ void ListaCadenasADN::removeCadenaFromMap(const CadenaADN &deletedCadena)
 
     if (orderedCadenasMap[deletedCadena] == 0)
         orderedCadenasMap.erase(deletedCadena);
+}
+
+void ListaCadenasADN::removeFromCadenaConCodonMap(const CadenaADN &deletedCadena)
+{
+    for (const auto &cur_codon : deletedCadena.exposeCodones())
+    {
+        cadenasConCodonMap[cur_codon][deletedCadena] -= 1;
+
+        if (cadenasConCodonMap[cur_codon][deletedCadena] == 0)
+            cadenasConCodonMap[cur_codon].erase(deletedCadena);
+    }
 }
 
 // Borra la primera cadena de ADN de la lista
@@ -360,18 +381,9 @@ string ListaCadenasADN::listaCadenasADN()
 // NUEVO:Lista las cadenas que contienen un codón determinado, sin repetidos
 string ListaCadenasADN::listaCadenasConCodon(const string &targetCodon)
 {
-    std::string returnString;
-    for (const auto &curPair : orderedCadenasMap)
-    {
-        CadenaADN curCadena = curPair.first;
-        if (curCadena.contarCodon(targetCodon) >= 1)
-        {
-            returnString += curCadena.getSecuencia();
-            returnString += "\n";
-        }
-    }
 
-    return returnString.substr(0, returnString.length() - 1);
+    return dumpMapContentsToString(cadenasConCodonMap[targetCodon], [](const CadenaADN &curCadena)
+                                   { return curCadena.getSecuencia(); });
 }
 
 // NUEVO:elimina las cadenas de ADN con la misma secuencia, dejando sólo la primera que aparezca en la lista
