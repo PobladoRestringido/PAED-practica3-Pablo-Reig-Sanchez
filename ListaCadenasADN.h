@@ -40,11 +40,13 @@ private:
    std::map<std::string, int> codonToFrequency;
    std::map<CadenaADN, int> cadenaToFrequency;
    std::unordered_map<std::string, std::map<CadenaADN, int>> codonToCadenas;
-   void insertInMaps(const CadenaADN &);
-   void removeFromMaps(const CadenaADN &);
 
-   void insertCodonesInMap(const CadenaADN &);
-   void removeCodonesFromMap(const CadenaADN &);
+   void registerCadenaInIndexes(const CadenaADN &);
+   void unregisterCadenaFromIndexes(const CadenaADN &);
+
+   void addCodonsToIndex(const CadenaADN &);
+   void removeCodonsFromIndex(const CadenaADN &);
+
    void insertCadenaConCodonMap(const CadenaADN &);
 
    void insertCadenaInMap(const CadenaADN &);
