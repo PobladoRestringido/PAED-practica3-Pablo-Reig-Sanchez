@@ -47,10 +47,10 @@ private:
    void addCodonsToIndex(const CadenaADN &);
    void removeCodonsFromIndex(const CadenaADN &);
 
-   void insertCadenaConCodonMap(const CadenaADN &);
+   void addCadenaToIndex(const CadenaADN &);
+   void removeCadenaFromIndex(const CadenaADN &);
 
-   void insertCadenaInMap(const CadenaADN &);
-   void removeCadenaFromMap(const CadenaADN &);
+   void indexCadenaByCodons(const CadenaADN &);
    void removeFromCadenaConCodonMap(const CadenaADN &);
 
 public:

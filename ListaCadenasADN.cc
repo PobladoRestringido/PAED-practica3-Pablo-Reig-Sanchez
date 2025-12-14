@@ -100,11 +100,11 @@ Inserting new Cadenas
 ---------------------
 */
 
-void ListaCadenasADN::registerCadenaInIndexes(const CadenaADN &new_cadena)
+void ListaCadenasADN::registerCadenaInIndexes(const CadenaADN &newCadena)
 {
-    addCodonsToIndex(new_cadena);
-    insertCadenaInMap(new_cadena);
-    insertCadenaConCodonMap(new_cadena);
+    addCodonsToIndex(newCadena);
+    addCadenaToIndex(newCadena);
+    indexCadenaByCodons(newCadena);
 }
 
 void ListaCadenasADN::addCodonsToIndex(const CadenaADN &new_cadena)
@@ -115,13 +115,13 @@ void ListaCadenasADN::addCodonsToIndex(const CadenaADN &new_cadena)
     }
 }
 
-void ListaCadenasADN::insertCadenaInMap(const CadenaADN &new_cadena)
+void ListaCadenasADN::addCadenaToIndex(const CadenaADN &new_cadena)
 {
 
     cadenaToFrequency[new_cadena] += 1;
 }
 
-void ListaCadenasADN::insertCadenaConCodonMap(const CadenaADN &newCadena)
+void ListaCadenasADN::indexCadenaByCodons(const CadenaADN &newCadena)
 {
     for (const auto &cur_codon : newCadena.exposeCodones())
     {
@@ -184,7 +184,7 @@ bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
 void ListaCadenasADN::unregisterCadenaFromIndexes(const CadenaADN &deletedCadena)
 {
     removeCodonsFromIndex(deletedCadena);
-    removeCadenaFromMap(deletedCadena);
+    removeCadenaFromIndex(deletedCadena);
     removeFromCadenaConCodonMap(deletedCadena);
 }
 
@@ -199,7 +199,7 @@ void ListaCadenasADN::removeCodonsFromIndex(const CadenaADN &deletedCadena)
     }
 }
 
-void ListaCadenasADN::removeCadenaFromMap(const CadenaADN &deletedCadena)
+void ListaCadenasADN::removeCadenaFromIndex(const CadenaADN &deletedCadena)
 {
 
     cadenaToFrequency[deletedCadena] -= 1;
