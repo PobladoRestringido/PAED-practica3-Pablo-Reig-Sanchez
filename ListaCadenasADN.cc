@@ -38,6 +38,11 @@ void IteradorLista::operator++()
     ++iter;
 }
 
+void IteradorLista::operator--()
+{
+    --iter;
+}
+
 // NUEVO: comprueba si el iterador ha sido creado con su constructor por defecto
 bool IteradorLista::esVacio() const
 {
@@ -401,6 +406,7 @@ void ListaCadenasADN::eliminaDuplicados()
         CadenaADN curCadena = *it;
         auto copyIt = it;
         it.rstep();
+
         if (cadenaToFrequency[curCadena] > 1)
         {
             borrar(copyIt);

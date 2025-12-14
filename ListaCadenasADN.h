@@ -16,6 +16,7 @@ class IteradorLista
 private:
    list<CadenaADN>::iterator iter;
    void operator++();
+   void operator--();
    CadenaADN &operator*() const;
 
 public:
