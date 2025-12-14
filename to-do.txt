@@ -5,6 +5,9 @@
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
 - test listaCadenasConCodon*
+    - make it efficient with maps O(1)
+
+-Make sure copied objects in PAED practice do pass tests for frecuencia and listaCodones/ listaCadenas methods
 
 - test eliminaDuplicados
 
