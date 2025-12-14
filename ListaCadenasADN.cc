@@ -13,7 +13,7 @@ void IteradorLista::step()
 // Retrocede una posición en la lista
 void IteradorLista::rstep()
 {
-    --iter;
+    --(*this);
 }
 
 // Operador de comparación
