@@ -185,7 +185,7 @@ void ListaCadenasADN::unregisterCadenaFromIndexes(const CadenaADN &deletedCadena
 {
     removeCodonsFromIndex(deletedCadena);
     removeCadenaFromIndex(deletedCadena);
-    removeFromCadenaConCodonMap(deletedCadena);
+    unindexCadenaByCodons(deletedCadena);
 }
 
 void ListaCadenasADN::removeCodonsFromIndex(const CadenaADN &deletedCadena)
@@ -208,7 +208,7 @@ void ListaCadenasADN::removeCadenaFromIndex(const CadenaADN &deletedCadena)
         cadenaToFrequency.erase(deletedCadena);
 }
 
-void ListaCadenasADN::removeFromCadenaConCodonMap(const CadenaADN &deletedCadena)
+void ListaCadenasADN::unindexCadenaByCodons(const CadenaADN &deletedCadena)
 {
     for (const auto &cur_codon : deletedCadena.exposeCodones())
     {

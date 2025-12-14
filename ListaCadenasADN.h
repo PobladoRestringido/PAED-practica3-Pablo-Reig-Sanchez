@@ -51,7 +51,7 @@ private:
    void removeCadenaFromIndex(const CadenaADN &);
 
    void indexCadenaByCodons(const CadenaADN &);
-   void removeFromCadenaConCodonMap(const CadenaADN &);
+   void unindexCadenaByCodons(const CadenaADN &);
 
 public:
    // Devuelve un iterador que apunta al primer elemento de la lista
