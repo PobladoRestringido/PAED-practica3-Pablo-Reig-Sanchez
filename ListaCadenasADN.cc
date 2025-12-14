@@ -120,7 +120,7 @@ void ListaCadenasADN::insertCadenaConCodonMap(const CadenaADN &newCadena)
 {
     for (const auto &cur_codon : newCadena.exposeCodones())
     {
-        cadenasConCodonMap[cur_codon][newCadena] += 1;
+        codonToCadenas[cur_codon][newCadena] += 1;
     }
 }
 
@@ -207,10 +207,10 @@ void ListaCadenasADN::removeFromCadenaConCodonMap(const CadenaADN &deletedCadena
 {
     for (const auto &cur_codon : deletedCadena.exposeCodones())
     {
-        cadenasConCodonMap[cur_codon][deletedCadena] -= 1;
+        codonToCadenas[cur_codon][deletedCadena] -= 1;
 
-        if (cadenasConCodonMap[cur_codon][deletedCadena] == 0)
-            cadenasConCodonMap[cur_codon].erase(deletedCadena);
+        if (codonToCadenas[cur_codon][deletedCadena] == 0)
+            codonToCadenas[cur_codon].erase(deletedCadena);
     }
 }
 
@@ -382,7 +382,7 @@ string ListaCadenasADN::listaCadenasADN()
 string ListaCadenasADN::listaCadenasConCodon(const string &targetCodon)
 {
 
-    return dumpMapContentsToString(cadenasConCodonMap[targetCodon], [](const CadenaADN &curCadena)
+    return dumpMapContentsToString(codonToCadenas[targetCodon], [](const CadenaADN &curCadena)
                                    { return curCadena.getSecuencia(); });
 }
 
