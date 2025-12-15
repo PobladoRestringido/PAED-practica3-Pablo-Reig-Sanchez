@@ -4,14 +4,13 @@
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- HACER PRUEBAS VELOCIDAD*
+- send tutoria to Víctor*
 
 -Make sure copied objects in PAED practice do pass tests for frecuencia and listaCodones/ listaCadenas methods
 
 - make sure all public interfaces are exactly as defined in problem statements
 
 - check whether I'm missing any new methods that I'm not testing
-
 
 - improve testability by making my objects printable/ implementing operator<<
 

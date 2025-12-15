@@ -3,5 +3,5 @@ cd pruebas-velocidad-practica3
 make
 ./main
 make clean
+rm CadenaADN.h CadenaADN.cc ListaCadenasADN.cc ListaCadenasADN.h
 cd ..
-rm pruebas-velocidad-practica3/CadenaADN.h pruebas-velocidad-practica3/CadenaADN.cc

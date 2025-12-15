@@ -177,12 +177,16 @@ bool ListaCadenasADN::insertarDespues(IteradorLista it, const CadenaADN &new_cad
 }
 
 // Asigna la cadena de ADN la posición apuntada por el iterador
-bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &new_cadena)
+bool ListaCadenasADN::asignar(IteradorLista it, const CadenaADN &newCadena)
 {
     if (it.esVacio())
         return false;
 
-    *it = new_cadena;
+    CadenaADN oldCadena = *it;
+    unregisterCadenaFromIndexes(oldCadena);
+    registerCadenaInIndexes(newCadena);
+
+    *it = newCadena;
     return true;
 }
 
