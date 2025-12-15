@@ -1,12 +1,11 @@
-- Recicle tests from 2nd practice to test 3rd practice
-
 -Apuntarme mirar si mi código cpp compila y pasa pruebas en ordenadores UA
 
 -Mirar también si te estoy usando misma versión g++/ misma versión estándares cpp
 
-- send tutoria to Víctor*
-
-- unflash my pen drive
+- Recicle tests from 2nd practice to test 3rd practice*
+    - create .sh script to test it automatically
+    - create another script to test tests from 1st practice
+    - merge above two scripts
 
 - create standalone tests for asignar manteniendo conteos correctos
 
