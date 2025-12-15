@@ -6,6 +6,10 @@
 
 - send tutoria to Víctor*
 
+- unflash my pen drive
+
+- create standalone tests for asignar manteniendo conteos correctos
+
 -Make sure copied objects in PAED practice do pass tests for frecuencia and listaCodones/ listaCadenas methods
 
 - make sure all public interfaces are exactly as defined in problem statements
