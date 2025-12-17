@@ -157,14 +157,22 @@ int main()
 
     // --- Copia y operador de asignación ---
     ListaCadenasADN copia(lista);
-    ListaCadenasADN asignada;
-    asignada = lista;
+    ListaCadenasADN asignada = lista;
     test.expectEqualVec(obtenerSecuencias(copia), obtenerSecuencias(lista), "Constructor de copia correcto");
     test.expectEqualVec(obtenerSecuencias(asignada), obtenerSecuencias(lista), "Operador de asignación correcto");
 
-    lista.insertarFinal(c4);
+    lista.insertarFinal(c4); // "GATGAT"
     test.check(obtenerSecuencias(lista) != obtenerSecuencias(copia), "Copia independiente del original");
-    test.check(obtenerSecuencias(lista) != obtenerSecuencias(asignada), "Asignada independiente del original");
+    test.check(lista.frecuenciaCodon("GAT") != copia.frecuenciaCodon("GAT"),
+               "Índice codones de copia independiente del original");
+    test.check(lista.listaCadenasConCodon("GAT") != copia.listaCadenasConCodon("GAT"),
+               "Índice 'cadenas por codón' de copia independiente del original");
+    test.check(obtenerSecuencias(lista) != obtenerSecuencias(asignada),
+               "Asignada independiente del original");
+    test.check(lista.frecuenciaCodon("GAT") != asignada.frecuenciaCodon("GAT"),
+               "Índice codones de asignada independiente del original");
+    test.check(lista.listaCadenasConCodon("GAT") != asignada.listaCadenasConCodon("GAT"),
+               "Índice 'cadenas por codón' de asignada independiente del original");
 
     // --- Asignar en posición ---
     IteradorLista it = copia.begin();
