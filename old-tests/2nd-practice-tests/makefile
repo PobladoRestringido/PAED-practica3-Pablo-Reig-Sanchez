@@ -1,6 +1,6 @@
 
 COMP=g++
-OPT=-Wall -std=c++11 -g
+OPT=-Wall -std=c++11 -g -fpermissive
 
 main: Ejemplo.o CadenaADN.o ListaCadenasADN.o
 	$(COMP) $(OPT) -o main Ejemplo.o CadenaADN.o ListaCadenasADN.o
