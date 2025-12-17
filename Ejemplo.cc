@@ -398,16 +398,40 @@ int main()
         lista12.listaCodones(),
         string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
         "listaCodones");
+    test.expectEqual(
+        lista12ConstructorCopy.listaCodones(),
+        string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
+        "listaCodones for copy created by copy constructor");
+    test.expectEqual(
+        lista12AssignmentOperatorCopy.listaCodones(),
+        string("AGA\nATC\nATG\nCCT\nGAT\nGCA\nTCG"),
+        "listaCodones for copy created by assignment operator");
 
     test.expectEqual(
         lista12.listaCadenasADN(),
         string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
         "listaCadenasADN");
+    test.expectEqual(
+        lista12ConstructorCopy.listaCadenasADN(),
+        string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
+        "listaCadenasADN for copy created by copy constructor");
+    test.expectEqual(
+        lista12AssignmentOperatorCopy.listaCadenasADN(),
+        string("ATG\nCCTAGAATC\nGATATCATC\nGCATCG"),
+        "listaCadenasADN for copy created by assignment operator");
 
     test.expectEqual(
         lista12.listaCadenasConCodon("ATC"),
         string("CCTAGAATC\nGATATCATC"),
         "listaCadenasConCodon");
+    test.expectEqual(
+        lista12ConstructorCopy.listaCadenasConCodon("ATC"),
+        string("CCTAGAATC\nGATATCATC"),
+        "listaCadenasConCodon for copy created by copy constructor");
+    test.expectEqual(
+        lista12AssignmentOperatorCopy.listaCadenasConCodon("ATC"),
+        string("CCTAGAATC\nGATATCATC"),
+        "listaCadenasConCodon for copy created by assignment operator");
 
     // --- eliminaDuplicados ---
     lista12.eliminaDuplicados();
