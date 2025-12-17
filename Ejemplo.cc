@@ -371,6 +371,8 @@ int main()
     auto itcc7 = test.nth(lista12, 6);
     lista12.borrar(itcc3);
     lista12.borrar(itcc7);
+    ListaCadenasADN lista12ConstructorCopy = ListaCadenasADN(lista12);
+    ListaCadenasADN lista12AssignmentOperatorCopy = lista12;
 
     test.expectEqualVec(
         obtenerSecuencias(lista12),
@@ -382,7 +384,15 @@ int main()
         "Inserción y borrado pre probar cuentas (orden inverso)");
 
     test.expectEqual(lista12.frecuenciaCodon("ATC"), 3, "frecuenciaCodon");
+    test.expectEqual(lista12ConstructorCopy.frecuenciaCodon("ATC"), 3,
+                     "frecuenciaCodon for copy created by copy constructor");
+    test.expectEqual(lista12AssignmentOperatorCopy.frecuenciaCodon("ATC"), 3,
+                     "frecuenciaCodon for copy created by assignment operator");
     test.expectEqual(lista12.frecuenciaCadena(cc3), 2, "frecuenciaCadena");
+    test.expectEqual(lista12ConstructorCopy.frecuenciaCadena(cc3), 2,
+                     "frecuenciaCadena for copy created by copy constructor");
+    test.expectEqual(lista12AssignmentOperatorCopy.frecuenciaCadena(cc3), 2,
+                     "frecuenciaCadena for copy created by assignment operator");
 
     test.expectEqual(
         lista12.listaCodones(),
